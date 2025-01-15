@@ -22,17 +22,16 @@ export default function Header() {
 	const headerRef = useRef<HTMLDivElement | null>(null);
 	const [isOpen, setIsOpen] = useState(false);
 	useEffect(() => {
-		const windowHeight = window.innerHeight;
-		console.log(windowHeight);
+		// const windowHeight = window.innerHeight;
 		const handleScroll = () => {
 			if (headerRef.current) {
-				const topHeight = 0.65 * windowHeight;
+				// const topHeight = 0.65 * windowHeight;
 				const classes = [
 					"shadow-md",
 					"border-none",
 					"bg-background",
 				];
-				if (window.scrollY > topHeight) {
+				if (window.scrollY > 0) {
 					headerRef.current.classList.add(...classes);
 				} else {
 					headerRef.current.classList.remove(
@@ -52,12 +51,12 @@ export default function Header() {
 	return (
 		<header className="bg-transparent">
 			{/* <InfoBar /> */}
-			<div ref={headerRef} className="z-50 w-full z-50 container fixed top-0 left-0">
-				<nav className="flex items-center gap-4 justify-between w-full h-full">
+			<div ref={headerRef} className="z-50 w-full z-50 fixed top-0 left-0 w-full">
+				<nav className="flex items-center gap-4 justify-between w-full h-full container">
 					<NextImage
 						src="/logo.png"
 						alt="logo"
-						className="aspect-square max-w-[72px] max-h-[72px]"
+						className="aspect-square max-w-[90px] max-h-[90px]"
 					/>
 					<div className="flex items-center">
 						<ul className="flex items-center gap-6">

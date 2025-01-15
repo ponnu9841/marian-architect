@@ -8,3 +8,10 @@ type WorkCardProps = {
 	category: string;
 	style: string
 }
+
+type Service = {
+	icon: string;
+	title: string;
+	description: string;
+	image: string;
+};

@@ -75,3 +75,27 @@ export const residential = [
         style: "Modern",
     },
 ]
+
+export const services = [
+	{
+		icon: "/icons/service-1.svg",
+		image: "/about.webp",
+		title: "Branding",
+		description:
+			"First impressions count! Make sure your brand works for you. We offer digital marketing.",
+	},
+	{
+		icon: "/icons/service-2.svg",
+		image: "/about.webp",
+		title: "UX Design",
+		description:
+			"First impressions count! Make sure your brand works for you. We offer digital marketing.",
+	},
+	{
+		icon: "/icons/service-3.svg",
+		image: "/about.webp",
+		title: "Strategy",
+		description:
+			"First impressions count! Make sure your brand works for you. We offer digital marketing.",
+	},
+];

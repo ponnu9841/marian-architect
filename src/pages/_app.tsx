@@ -22,7 +22,7 @@ export default function App(props: AppPropsWithLayout) {
 			<div className={`min-h-screen w-full ${jost.variable}`} >
 				<ThemeProvider
 					attribute="class"
-					defaultTheme="dark"
+					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange
 				>
