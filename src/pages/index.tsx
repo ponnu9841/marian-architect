@@ -10,7 +10,13 @@ import { contactData, services } from "@/dummy-data";
 export default function Home() {
 	return (
 		<>
-			<Banner />
+			<Banner
+				title="Architecture is a visual art, and the building speak for themselves"
+				description="Architecture bibendum pharetra eleifend. Suspendisse vel volutpat
+					purus, sit amet bibendum nisl. Cras mollis turpis a ipsum ultes, nec
+					condimentum ipsum consequat. Mauris vitae consequat nibh, vitae
+					interdum mi."
+			/>
 			<About />
 			<Services services={services} />
 			<Portfolio />

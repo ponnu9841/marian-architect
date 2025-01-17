@@ -6,7 +6,7 @@ import React from 'react'
 export default function AboutPage() {
   return (
     <div>
-        <Banner />
+        <Banner title="About Us" />
         <About />
     </div>
   )
