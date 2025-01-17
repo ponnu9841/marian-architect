@@ -15,3 +15,8 @@ type Service = {
 	description: string;
 	image: string;
 };
+
+type BannerProps = {
+	title: string;
+	description?: string;
+}

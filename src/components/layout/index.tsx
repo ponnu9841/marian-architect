@@ -1,11 +1,13 @@
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "@/components/ui/separator";
 import Footer from "./footer";
 import Header from "./header";
 import PreLoader from "./preloader";
 import ScrollToTop from "./scroll-to-top";
+import { useRouter } from "next/router";
 
 export default function Layout(props: ReactChildren) {
 	const { children } = props;
+	const router = useRouter();
 
 	return (
 		<>
@@ -13,7 +15,7 @@ export default function Layout(props: ReactChildren) {
 			{children}
 			<Separator />
 			<Footer />
-			<PreLoader />
+			{router.pathname !== "/404" && <PreLoader />}
 			<ScrollToTop />
 		</>
 	);

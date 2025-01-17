@@ -8,7 +8,7 @@ import React from "react";
 export default function Services() {
 	return (
 		<>
-			<Banner />
+			<Banner title="Services" />
 			<div className="container my-24">
 				{services.map((service, index) => (
 					<div
