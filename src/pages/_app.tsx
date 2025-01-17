@@ -3,7 +3,6 @@ import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import { jost } from "../utils/fonts";
 import { ThemeProvider } from "@/components/theme-provider";
-import Layout from "@/components/layout";
 import CustomCursor from "@/components/custom-cursor";
 
 //eslint-disable-next-line
@@ -26,7 +25,7 @@ export default function App(props: AppPropsWithLayout) {
 					enableSystem
 					disableTransitionOnChange
 				>
-					<Layout>{getLayout(<Component {...pageProps} />)}</Layout>
+					{getLayout(<Component {...pageProps} />)}
 					<CustomCursor />
 				</ThemeProvider>
 			</div>

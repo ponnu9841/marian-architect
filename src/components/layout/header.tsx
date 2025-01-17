@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import NextImage from "../ui/Image";
 import Link from "next/link";
-import { ThemeToggle } from "./ThemeToggle";
+// import { ThemeToggle } from "./ThemeToggle";
 import {
 	Sheet,
 	SheetContent,
@@ -68,15 +68,15 @@ export default function Header() {
 									<Link
 										key={item.name}
 										href={item.link}
-										className="inline-flex items-center px-1 text-base tracking-wider"
+										className="inline-flex items-center px-1 text-base tracking-wider hover:text-primary trnsition-all duration-300"
 									>
 										{item.name}
 									</Link>
 								</li>
 							))}
-							<div className="ml-5">
+							{/* <div className="ml-5">
 								<ThemeToggle />
-							</div>
+							</div> */}
 						</ul>
 						<div className="md:hidden flex items-center z-50">
 							<Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -101,7 +101,7 @@ export default function Header() {
 											<Link
 												key={item.name}
 												href={item.link}
-												className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium"
+												className="text-gray-600 hover:text-primary block px-3 py-2 text-base font-medium"
 												onClick={() => setIsOpen(false)}
 											>
 												{item.name}

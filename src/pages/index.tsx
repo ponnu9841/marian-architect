@@ -1,3 +1,4 @@
+import Layout from "@/components/layout";
 import About from "@/components/section/about";
 import Banner from "@/components/section/banner";
 import Portfolio from "@/components/section/portfolio";
@@ -16,3 +17,7 @@ export default function Home() {
 		</>
 	);
 }
+
+Home.getLayout = function getLayout(page: React.ReactElement) {
+	return <Layout>{page}</Layout>;
+};
