@@ -19,27 +19,27 @@ const portfolios = [
 export default function Portfolio() {
 	return (
 		<div className="container my-24">
-			<Heading title="Portfolio" variant="h2" className="text-center" />
-			{portfolios.map((portfolio, index) => (
-				<div className="mt-5" key={index}>
-					<Heading title={portfolio.title} variant="h3" className="mb-3" />
-					<div
-						className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-						key={index}
-					>
-						<div className="absolute top-1/2 -translate-y-1/2 bg-primary h-[1px] w-[calc(66%+1.5rem)] z-10"></div>
-						{portfolio.images.map((image, index2) => (
-							<div key={index2}>
-								<NextImage
-									src={image}
-									className="aspect-square md:max-w-[200px] hover:max-w-full md:min-h-[400px] z-20 transition-all duration-300"
-									imageClassName="object-cover md:object-contain transition-all duration-300"
-								/>
+			<Heading title="Portfolio" variant="h2" className="text-center mb-6" />
+			<div className="flex gap-6">
+				{portfolios.map((portfolio, index) => (
+					<div className="mt-5 w-full md:w-[calc(33.33%-1.5rem)]" key={index}>
+						<div className="relative">
+							{/* <div className="absolute w-[1.5px] h-2/3 left-0 top-0 bg-primary mt-36"></div> */}
+							<Heading title={portfolio.title} variant="h3" className="mb-3" />
+							<div className="flex flex-col gap-6" key={index}>
+								{portfolio.images.map((image, index2) => (
+									<NextImage
+										src={image}
+										className="aspect-square md:max-w-[200px] hover:max-w-full md:min-h-[370px] z-20 transition-all duration-300 flex justify-center"
+										imageClassName="object-cover md:object-contain transition-all duration-300"
+										key={index2}
+									/>
+								))}
 							</div>
-						))}
+						</div>
 					</div>
-				</div>
-			))}
+				))}
+			</div>
 		</div>
 	);
 }
