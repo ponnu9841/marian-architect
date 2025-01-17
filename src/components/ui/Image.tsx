@@ -8,12 +8,13 @@ type NextImageProps = {
 	priority?: boolean;
 	className?: string;
 	imageClassName?: string;
+	onClick?: () => void;
 };
 
 export default function NextImage(props: NextImageProps) {
-	const { src, alt = "", className, priority = true, imageClassName } = props;
+	const { src, alt = "", className, priority = true, imageClassName, onClick } = props;
 	return (
-		<div className={cn("relative w-full h-full", className)}>
+		<div className={cn("relative w-full h-full", className)} onClick={onClick}>
 			<Image
 				src={src}
 				fill={true}

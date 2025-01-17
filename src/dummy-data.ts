@@ -80,22 +80,57 @@ export const services = [
 	{
 		icon: "/icons/service-1.svg",
 		image: "/about.webp",
-		title: "Branding",
+		title: "Architecture Planning",
 		description:
 			"First impressions count! Make sure your brand works for you. We offer digital marketing.",
 	},
 	{
 		icon: "/icons/service-2.svg",
 		image: "/about.webp",
-		title: "UX Design",
+		title: "Interior Designing",
 		description:
 			"First impressions count! Make sure your brand works for you. We offer digital marketing.",
 	},
 	{
 		icon: "/icons/service-3.svg",
 		image: "/about.webp",
-		title: "Strategy",
+		title: "Landscape Planning",
+		description:
+			"First impressions count! Make sure your brand works for you. We offer digital marketing.",
+	},
+	{
+		icon: "/icons/service-3.svg",
+		image: "/about.webp",
+		title: "Architecture Consultation",
 		description:
 			"First impressions count! Make sure your brand works for you. We offer digital marketing.",
 	},
 ];
+
+
+export const contactData = [
+	{
+		title: "Our Locations",
+		icon: "/icons/map.svg",
+		line1: "110 W 34th St, NYC.",
+		line2: "67 Madison Avenue.",
+	},
+	{
+		title: "Give Us A Call",
+		icon: "/icons/message.svg",
+		line1: "(+1) 012-345-6789",
+		line2: "(+1) 012-345-6789",
+	},
+	{
+		title: "Help Desk",
+		icon: "/icons/help.svg",
+		line1: "demo@yourmail.com",
+		line2: "demo@yourmail.com",
+	},
+];
+
+export const aboutData = {
+	image: "/about.webp",
+	shortDescription: "<p>At Marian Architects, we’re on a mission to transform the way the world thinks about building by making sustainability the heart of every design. We believe that great architecture isn’t just about aesthetics—it’s about creating spaces that are functional, thoughtful, and harmonious with the environment. This belief drives us to design buildings that not only meet your needs but also respect the planet we all share.</p>",
+	longDescription: "<p>At Marian Architects, we’re on a mission to transform the way the world thinks about building by making sustainability the heart of every design. We believe that great architecture isn’t just about aesthetics—it’s about creating spaces that are functional, thoughtful, and harmonious with the environment. This belief drives us to design buildings that not only meet your needs but also respect the planet we all share. <br /><br />Our team of passionate architects, designers, and planners works collaboratively to bring your vision to life. Whether it’s a home, an office, or a community space, we approach each project with a deep commitment to sustainability and innovation. From the initial concept to the final build, we focus on creating energy-efficient designs that make smart use of resources while reducing environmental impact. Let us help you turn your ideas into reality with designs that inspire and make a difference. Together, we can create spaces that not only reflect your vision but also contribute to a greener, more sustainable future.</p>"
+}

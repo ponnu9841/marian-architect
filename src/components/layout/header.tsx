@@ -15,6 +15,7 @@ const navItems = [
 	{ name: "Home", link: "/" },
 	{ name: "About", link: "/about" },
 	{ name: "Services", link: "/services" },
+	{ name: "Portfolio", link: "/portfolio" },
 	{ name: "Contact", link: "/contact" },
 ];
 
@@ -53,11 +54,13 @@ export default function Header() {
 			{/* <InfoBar /> */}
 			<div ref={headerRef} className="z-50 w-full z-50 fixed top-0 left-0 w-full">
 				<nav className="flex items-center gap-4 justify-between w-full h-full container">
-					<NextImage
-						src="/logo.png"
-						alt="logo"
-						className="aspect-square max-w-[90px] max-h-[90px]"
-					/>
+					<Link href="/">
+						<NextImage
+							src="/logo.png"
+							alt="logo"
+							className="aspect-square w-[90px] h-[90px]"
+						/>
+					</Link>
 					<div className="flex items-center">
 						<ul className="flex items-center gap-6">
 							{navItems.map((item, index) => (
