@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import { useRouter } from "next/router";
 
 const navItems = [
 	{ name: "Home", link: "/" },
@@ -22,6 +23,7 @@ const navItems = [
 export default function Header() {
 	const headerRef = useRef<HTMLDivElement | null>(null);
 	const [isOpen, setIsOpen] = useState(false);
+	const router = useRouter();
 	useEffect(() => {
 		// const windowHeight = window.innerHeight;
 		const handleScroll = () => {
@@ -71,7 +73,7 @@ export default function Header() {
 									<Link
 										key={item.name}
 										href={item.link}
-										className="inline-flex items-center px-1 text-base tracking-wider hover:text-primary trnsition-all duration-300"
+										className={`inline-flex items-center px-1 text-base tracking-wider hover:text-primary trnsition-all duration-300 ${router.pathname === item.link ? "text-primary" : ""}`}
 									>
 										{item.name}
 									</Link>

@@ -4,7 +4,6 @@ import Banner from "@/components/section/banner";
 import Contact from "@/components/section/contact";
 import Portfolio from "@/components/section/portfolio";
 import Services from "@/components/section/services/services2";
-// import Works from "@/components/section/works";
 import { contactData, services } from "@/dummy-data";
 
 export default function Home() {

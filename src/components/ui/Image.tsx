@@ -12,7 +12,7 @@ type NextImageProps = {
 };
 
 export default function NextImage(props: NextImageProps) {
-	const { src, alt = "", className, priority = true, imageClassName, onClick } = props;
+	const { src, alt = "", className, priority = false, imageClassName, onClick } = props;
 	return (
 		<div className={cn("relative w-full h-full", className)} onClick={onClick}>
 			<Image
