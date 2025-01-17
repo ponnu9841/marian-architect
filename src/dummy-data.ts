@@ -110,22 +110,20 @@ export const services = [
 
 export const contactData = [
 	{
-		title: "Our Locations",
+		title: "Our Location",
 		icon: "/icons/map.svg",
-		line1: "110 W 34th St, NYC.",
-		line2: "67 Madison Avenue.",
+		line1: "Thoppil, Thrikkakara, Ernakulam",
+		// line2: "Ernakulam",
 	},
 	{
 		title: "Give Us A Call",
 		icon: "/icons/message.svg",
-		line1: "(+1) 012-345-6789",
-		line2: "(+1) 012-345-6789",
+		line1: "(+91) 963312234",
 	},
 	{
 		title: "Help Desk",
 		icon: "/icons/help.svg",
-		line1: "demo@yourmail.com",
-		line2: "demo@yourmail.com",
+		line1: "mariandesignstudiokochi@gmail.com",
 	},
 ];
 
