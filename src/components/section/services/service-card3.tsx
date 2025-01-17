@@ -10,7 +10,7 @@ export default function ServiceCard(props: Service) {
             <div className="absolute left-0 top-0 w-full h-full bg-black/40 z-10 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
 			<NextImage src={image} imageClassName="object-cover rounded-sm" />
 			<div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
-				<Link href="#">
+				<Link href="/services">
 					<Button>{title}</Button>
 				</Link>
 			</div>
