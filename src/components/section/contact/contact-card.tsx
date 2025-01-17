@@ -1,6 +1,5 @@
 import NextImage from "@/components/ui/Image";
 import {
-	Card,
 	CardContent,
 	CardDescription,
 	CardTitle,
@@ -11,13 +10,13 @@ export interface ContactCardProps {
 	icon: string;
 	title: string;
 	line1: string;
-	line2: string;
+	line2?: string;
 }
 
 export default function ContactCard(props: ContactCardProps) {
 	const { icon, title, line1, line2 } = props;
 	return (
-		<Card className="shadow-2xl p-2 pt-10 pb-6 border-none">
+		<>
 			<CardContent>
 				<div className="flex space-x-10">
 					<div>
@@ -29,12 +28,12 @@ export default function ContactCard(props: ContactCardProps) {
 					<div>
 						<CardTitle>{title}</CardTitle>
 						<CardDescription className="text-base mt-3">
-							<div>{line1}</div>
+							<div className="break-all">{line1}</div>
 							<div>{line2}</div>
 						</CardDescription>
 					</div>
 				</div>
 			</CardContent>
-		</Card>
+		</>
 	);
 }
