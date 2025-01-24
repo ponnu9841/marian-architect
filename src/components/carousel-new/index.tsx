@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
+import NextImage from "../ui/Image";
 
 const carouselItems = [
 	{
@@ -90,10 +91,10 @@ export default function Carousel() {
 			if (timeoutRef.current) clearTimeout(timeoutRef.current);
 			if (autoNextRef.current) clearTimeout(autoNextRef.current);
 		};
-	}, []);
+	}, []); //eslint-disable-line
 
 	return (
-		<div className="carousel" ref={carouselRef}>
+		<div className="carousel min-h-screen" ref={carouselRef}>
 			<div className="list">
 				{items.map((item, index) => (
 					<div key={index} className="item">
@@ -106,8 +107,11 @@ export default function Carousel() {
 			<div className="thumbnail">
 				{items.map((item, index) => (
 					<div key={index} className="item">
-						{/* eslint-disable-next-line */}
-						<img src={item.image || "/placeholder.svg"} alt={item.title} />
+						<NextImage
+							src={item.image}
+							alt={item.title || "banner-image"}
+							imageClassName="rounded-xl object-cover"
+						/>
 					</div>
 				))}
 			</div>

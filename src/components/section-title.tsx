@@ -12,7 +12,7 @@ export default function SectionTitle({
 		<>
 			<motion.h2
 				className="text-3xl xl:text-5xl text-center tracking-wider"
-				initial={{ opacity: 0, transform: "translateY(-100px)" }}
+				initial={{ opacity: 0, transform: "translateY(-70px)" }}
 				whileInView={{ opacity: 1, transform: "translateY(0)" }}
 				transition={{
 					duration: 1,

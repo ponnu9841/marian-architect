@@ -22,11 +22,11 @@ export default function Services({ services }: { services: Service[] }) {
 					<motion.div
 						key={index}
 						className="w-full sm:w-1/2 lg:w-1/3 2xl:w-1/4 px-6 2xl:px-4 mb-12 2xl:mb-0"
-						initial={{ y: 50, filter: "blur(5px)" }}
-						whileInView={{ y: 0, filter: "blur(0)" }}
+						initial={{ scale: 0.2, filter: "blur(5px)" }}
+						whileInView={{ scale: 1, filter: "blur(0)" }}
 						transition={{
 							duration: 1,
-							delay: index  % 2 === 0 ? index / 4 : index / 6,
+							delay: index  === 1 || index === 2 ? 0.3 : 0.5,
 						}}
 					>
 						<ServiceCard {...service} />

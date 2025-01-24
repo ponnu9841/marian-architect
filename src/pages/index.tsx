@@ -3,7 +3,7 @@ import Layout from "@/components/layout";
 import About from "@/components/section/about";
 // import Banner from "@/components/section/banner/banner-2";
 import Contact from "@/components/section/contact";
-import Portfolio from "@/components/section/portfolio";
+import Portfolio from "@/components/section/portfolio/portfolio2";
 import Services from "@/components/section/services/services2";
 import { contactData, services } from "@/dummy-data";
 
@@ -18,9 +18,9 @@ export default function Home() {
 					interdum mi."
 			/> */}
 			<Carousel />
-			<About />
-			<Services services={services} />
 			<Portfolio />
+			<Services services={services} />
+			<About />
 			<Contact contactData={contactData} />
 		</>
 	);
