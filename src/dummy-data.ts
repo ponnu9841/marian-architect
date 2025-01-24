@@ -80,27 +80,27 @@ export const services = [
 	{
 		icon: "/icons/service-1.svg",
 		image: "/about.webp",
-		title: "Architecture Planning",
+		title: "Architecture Designing",
 		description:
 			"First impressions count! Make sure your brand works for you. We offer digital marketing.",
 	},
 	{
 		icon: "/icons/service-2.svg",
-		image: "/about.webp",
+		image: "/works/1.jpg",
 		title: "Interior Designing",
 		description:
 			"First impressions count! Make sure your brand works for you. We offer digital marketing.",
 	},
 	{
 		icon: "/icons/service-3.svg",
-		image: "/about.webp",
+		image: "/works/2.jpg",
 		title: "Landscape Planning",
 		description:
 			"First impressions count! Make sure your brand works for you. We offer digital marketing.",
 	},
 	{
 		icon: "/icons/service-3.svg",
-		image: "/about.webp",
+		image: "/works/3.jpg",
 		title: "Architecture Consultation",
 		description:
 			"First impressions count! Make sure your brand works for you. We offer digital marketing.",

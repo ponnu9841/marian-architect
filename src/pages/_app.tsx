@@ -18,16 +18,18 @@ export default function App(props: AppPropsWithLayout) {
 	const { Component, pageProps } = props;
 	const getLayout = Component.getLayout ?? ((page) => page);
 	return (
-			<div className={`min-h-screen w-full ${jost.variable}`} >
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
-					{getLayout(<Component {...pageProps} />)}
-					<CustomCursor />
-				</ThemeProvider>
-			</div>
+		<div
+			className={`min-h-screen w-full ${jost.variable}`}
+		>
+			<ThemeProvider
+				attribute="class"
+				defaultTheme="dark"
+				enableSystem
+				disableTransitionOnChange
+			>
+				{getLayout(<Component {...pageProps} />)}
+				<CustomCursor />
+			</ThemeProvider>
+		</div>
 	);
 }

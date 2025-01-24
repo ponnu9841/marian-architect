@@ -1,7 +1,9 @@
 import GalleryDrawerContent from "@/components/gallery-drawer-content";
 import Heading from "@/components/heading";
+import SectionTitle from "@/components/section-title";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import NextImage from "@/components/ui/Image";
+import { motion } from "motion/react";
 import { useState } from "react";
 
 const portfolios = [
@@ -55,9 +57,12 @@ export default function Portfolio() {
 
 	return (
 		<div>
-			<div className="container my-24">
-				<Heading title="Portfolio" variant="h2" className="text-center mb-6" />
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+			<div className="container mt-24 mb-0">
+				<SectionTitle
+					title="Portfolio"
+					// description="Get your company heading in the right direction with our digital marketing strategist"
+				/>
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 					{portfolios.map((portfolio, index) => (
 						<div className="mt-5" key={index}>
 							<div className="relative">
@@ -66,18 +71,30 @@ export default function Portfolio() {
 									variant="h3"
 									className="mb-3"
 								/>
-								<div className="flex flex-col gap-6" key={index}>
+								<ul className="flex flex-col gap-8" key={index}>
 									{portfolio.images.map((image, index2) => (
-										<NextImage
-											src={image.src || "/no-image.png"}
-											alt={image.alt || "Image"}
-											className="aspect-square hover:max-w-full z-20 transition-all duration-300 flex justify-center"
-											imageClassName="object-cover transition-all duration-300"
-											key={index2}
-											onClick={() => openDialog(index2, index)}
-										/>
+										<div key={index2} className="overflow-hidden">
+											<motion.li
+												initial={{ opacity: 0, scale: 0.3, x: -50 }}
+												whileInView={{  opacity: 1, scale: 1, x: 0 }}
+												whileHover={{ scale: 1.1, opacity: 0.8 }}
+												whileTap={{ scale: 0.95 }}
+												transition={{
+													duration: 1,
+												 }}
+											>
+												<NextImage
+													src={image.src || "/no-image.png"}
+													alt={image.alt || "Image"}
+													className="aspect-square hover:max-w-full z-20 transition-all duration-300 flex justify-center"
+													imageClassName="object-cover transition-all duration-300"
+													key={index2}
+													onClick={() => openDialog(index2, index)}
+												/>
+											</motion.li>
+										</div>
 									))}
-								</div>
+								</ul>
 							</div>
 						</div>
 					))}

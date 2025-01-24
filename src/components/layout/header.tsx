@@ -11,12 +11,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useRouter } from "next/router";
+import { teko } from "@/utils/fonts";
 
 const navItems = [
 	{ name: "Home", link: "/" },
-	{ name: "About", link: "/about" },
-	{ name: "Services", link: "/services" },
 	{ name: "Portfolio", link: "/portfolio" },
+	{ name: "Services", link: "/services" },
+	{ name: "About", link: "/about" },
 	{ name: "Contact", link: "/contact" },
 ];
 
@@ -29,11 +30,7 @@ export default function Header() {
 		const handleScroll = () => {
 			if (headerRef.current) {
 				// const topHeight = 0.65 * windowHeight;
-				const classes = [
-					"shadow-md",
-					"border-none",
-					"bg-background",
-				];
+				const classes = ["shadow-md", "border-none", "bg-background"];
 				if (window.scrollY > 0) {
 					headerRef.current.classList.add(...classes);
 				} else {
@@ -54,14 +51,22 @@ export default function Header() {
 	return (
 		<header className="bg-transparent">
 			{/* <InfoBar /> */}
-			<div ref={headerRef} className="z-50 w-full z-50 fixed top-0 left-0 w-full">
+			<div
+				ref={headerRef}
+				className="z-50 w-full z-50 fixed top-0 left-0 w-full"
+			>
 				<nav className="flex items-center gap-4 justify-between w-full h-full container">
-					<Link href="/">
+					<Link href="/" className="flex justify-start items-center space-x-2">
 						<NextImage
 							src="/logo.png"
 							alt="logo"
 							className="aspect-square w-[90px] h-[90px]"
 						/>
+						<div
+							className={`text-primary text-3xl tracking-widest font-bold ${teko.className}`}
+						>
+							Marian<span className="text-secondary">Architect</span>
+						</div>
 					</Link>
 					<div className="flex items-center">
 						<ul className="flex items-center gap-6">
@@ -73,7 +78,9 @@ export default function Header() {
 									<Link
 										key={item.name}
 										href={item.link}
-										className={`inline-flex items-center px-1 text-base tracking-wider hover:text-primary trnsition-all duration-300 ${router.pathname === item.link ? "text-primary" : ""}`}
+										className={`inline-flex items-center px-1 text-base tracking-wider hover:text-primary trnsition-all duration-300 ${
+											router.pathname === item.link ? "text-primary" : ""
+										}`}
 									>
 										{item.name}
 									</Link>

@@ -1,9 +1,10 @@
 import ServiceCard from "./service-card3";
 import SectionTitle from "@/components/section-title";
+import { motion } from "motion/react";
 
 export default function Services({ services }: { services: Service[] }) {
 	return (
-		<div className="container ">
+		<div className="container pt-20">
 			<SectionTitle
 				title="Services"
 				// description="Get your company heading in the right direction with our digital marketing strategist"
@@ -16,11 +17,20 @@ export default function Services({ services }: { services: Service[] }) {
 				desc="Get your company heading in the right direction with our digital marketing strategist"
 				className="mx-auto text-center mb-12 max-w-lg"
 			/> */}
-			<div className="lg:flex gap-8 mt-12">
+			<div className="flex flex-wrap sm:justify-start lg:justify-center -mx-6 2xl:-mx-4 mt-12">
 				{services.map((service, index) => (
-					<div key={index} className="mb-8 lg:mb-0 flex-1">
+					<motion.div
+						key={index}
+						className="w-full sm:w-1/2 lg:w-1/3 2xl:w-1/4 px-6 2xl:px-4 mb-12 2xl:mb-0"
+						initial={{ y: 50, filter: "blur(5px)" }}
+						whileInView={{ y: 0, filter: "blur(0)" }}
+						transition={{
+							duration: 1,
+							delay: index  % 2 === 0 ? index / 4 : index / 6,
+						}}
+					>
 						<ServiceCard {...service} />
-					</div>
+					</motion.div>
 				))}
 			</div>
 		</div>

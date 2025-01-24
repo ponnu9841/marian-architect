@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import AnimateText from "./amination/text";
 
 export default function TitleBadge({
 	title,
 	className,
 }: {
-	title: string | ReactNode;
+	title: string;
 	className?: string | undefined;
 }) {
 	return (
@@ -15,7 +15,7 @@ export default function TitleBadge({
 				className
 			)}
 		>
-			{title}
+			<AnimateText text={title} />
 		</div>
 	);
 }
