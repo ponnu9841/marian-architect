@@ -28,7 +28,7 @@ const CarouselSlider = (props: CarouselSliderProps) => {
 		showArrow = true,
 		customArrow
 	} = props;
-	const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+	const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
 
 	const opts = {
 		loop: true,
