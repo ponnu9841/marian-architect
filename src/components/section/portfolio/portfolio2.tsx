@@ -70,7 +70,7 @@ export default function Portfolio() {
 	};
 
 	return (
-		<div>
+		<>
 			<div className="container mt-24 mb-0">
 				<SectionTitle
 					title="Portfolio"
@@ -131,6 +131,6 @@ export default function Portfolio() {
 					)}
 				</DialogContent>
 			</Dialog>
-		</div>
+		</>
 	);
 }
