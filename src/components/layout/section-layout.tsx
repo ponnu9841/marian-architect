@@ -14,15 +14,14 @@ export default function SectionLayout({
 	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
 	const rotate = useTransform(scrollYProgress, [0, 1], [0, 0]);
 	return (
-		<motion.div
+		<div
 			className={cn(
-				"min-h-screen sticky top-0 flex justify-center items-center bg-background",
-                // !className ? bgClass : "",
+				"min-h-screen sticky top-0 flex justify-center items-center bg-[url(/background-2.jpg)] bg-cover bg-center",
+				// !className ? bgClass : "",
 				className
 			)}
-			style={{ scale, rotate }}
 		>
-			{children}
-		</motion.div>
+			<motion.div className="w-full" style={{ scale, rotate }}>{children}</motion.div>
+		</div>
 	);
 }
