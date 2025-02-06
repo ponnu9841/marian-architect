@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useRouter } from "next/router";
-import { teko } from "@/utils/fonts";
+import LogoText from "./logo-text";
 
 const navItems = [
 	{ name: "Home", link: "/" },
@@ -49,11 +49,11 @@ export default function Header() {
 		};
 	}, []);
 	return (
-		<header className="bg-transparent">
+		<header className="bg-transparent z-100 ">
 			{/* <InfoBar /> */}
 			<div
 				ref={headerRef}
-				className="z-50 w-full z-50 fixed top-0 left-0 w-full"
+				className="w-full z-50 fixed top-0 left-0 w-full"
 			>
 				<nav className="flex items-center gap-4 justify-between w-full h-full container">
 					<Link href="/" className="flex justify-start items-center space-x-2">
@@ -62,11 +62,7 @@ export default function Header() {
 							alt="logo"
 							className="aspect-square w-[90px] h-[90px]"
 						/>
-						<div
-							className={`text-primary text-3xl tracking-widest font-bold ${teko.className}`}
-						>
-							Marian<span className="text-secondary">Architect</span>
-						</div>
+						<LogoText />
 					</Link>
 					<div className="flex items-center">
 						<ul className="flex items-center gap-6">

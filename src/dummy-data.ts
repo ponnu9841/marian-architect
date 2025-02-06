@@ -112,7 +112,7 @@ export const contactData = [
 	{
 		title: "Our Location",
 		icon: "/icons/map.svg",
-		line1: "Thoppil, Thrikkakara, Ernakulam",
+		line1: "Thoppil, Thrikkakara,\r\n Ernakulam",
 		// line2: "Ernakulam",
 	},
 	{

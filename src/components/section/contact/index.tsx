@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 export default function Contact(props: { contactData: ContactCardProps[] }) {
 	const { contactData } = props;
 	return (
-		<section className="container mb-6">
+		<div className="container mb-6 mt-24">
 			<SectionTitle title="Contact" />
 			<div className="py-12">
 				<div className="flex flex-wrap justify-center items-stretch gap-8">
@@ -24,6 +24,6 @@ export default function Contact(props: { contactData: ContactCardProps[] }) {
 					))}
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 }

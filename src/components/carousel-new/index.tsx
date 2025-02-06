@@ -94,10 +94,10 @@ export default function Carousel() {
 	}, []); //eslint-disable-line
 
 	return (
-		<div className="carousel min-h-screen" ref={carouselRef}>
+		<div className="carousel min-h-screen max-w-full" ref={carouselRef}>
 			<div className="list">
 				{items.map((item, index) => (
-					<div key={index} className="item">
+					<div key={index} className="item max-w-full">
 						{/* eslint-disable-next-line */}
 						<img src={item.image} alt="" className="max-w-full" />
 						

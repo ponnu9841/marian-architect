@@ -6,8 +6,8 @@ type WorkCardProps = {
 	image: string;
 	heading: string;
 	category: string;
-	style: string
-}
+	style: string;
+};
 
 type Service = {
 	icon: string;
@@ -19,7 +19,7 @@ type Service = {
 type BannerProps = {
 	title: string;
 	description?: string;
-}
+};
 
 type CarouselCardProps = {
 	cardContentClassName?: string | undefined;
@@ -30,6 +30,7 @@ type CarouselCardProps = {
 
 type CarouselSliderProps = CarouselCardProps & {
 	images?: { image: string; title: string; description: string }[];
+	carouselClassName?: string;
 	carouselContentClassName?: string | undefined;
 	orientation?: "horizontal" | "vertical" | undefined;
 	id?: string;
