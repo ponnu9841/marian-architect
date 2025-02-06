@@ -1,4 +1,3 @@
-import { Separator } from "@/components/ui/separator";
 import Footer from "./footer";
 import Header from "./header";
 import PreLoader from "./preloader";
@@ -12,9 +11,10 @@ export default function Layout(props: ReactChildren) {
 	return (
 		<>
 			<Header />
-			{children}
-			<Separator />
-			<Footer />
+				<div className="bg-[url(/background-2.jpg)] bg-cover bg-center max-h-screen overflow-auto">
+					{children}
+					<Footer />
+				</div>
 			{router.pathname !== "/404" && <PreLoader />}
 			<ScrollToTop />
 		</>

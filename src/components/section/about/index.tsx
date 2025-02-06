@@ -1,7 +1,8 @@
 import AnimateText from "@/components/amination/text";
 import TitleBadge from "@/components/title-badge";
 import { Button } from "@/components/ui/button";
-import ParallaxTiltMultiple from "@/components/ui/parallax/parallax-multiple";
+import NextImage from "@/components/ui/Image";
+// import ParallaxTiltMultiple from "@/components/ui/parallax/parallax-multiple";
 import { aboutData } from "@/dummy-data";
 import parse from "html-react-parser";
 import { Plus } from "lucide-react";
@@ -13,13 +14,14 @@ import { useRouter } from "next/router";
 export default function About() {
 	const router = useRouter();
 	return (
-		<div className="container">
-			<div className="flex flex-col md:flex-row gap-8 my-24">
+		<div className="container mt-24">
+			<div className="flex flex-col md:flex-row gap-8">
 				<div className="flex-1">
-					<ParallaxTiltMultiple
+					{/* <ParallaxTiltMultiple
 						leftImage="/works/1.jpg"
 						rightImage="/portfolio.webp"
-					/>
+					/> */}
+					<NextImage src="/works/1.jpg" />
 				</div>
 				<div className="flex-1">
 					<TitleBadge title="About Us" />
@@ -27,7 +29,7 @@ export default function About() {
 						<AnimateText text="What We Do" />
 					</h2>
 					<motion.div
-						className="text-muted-foreground mb-4 text-lg"
+						className="text-muted-foreground mb-4 text-base"
 						initial={{ y: 50, filter: "blur(5px)" }}
 						whileInView={{ y: 0, filter: "blur(0)" }}
 						transition={{ duration: 1, delay: 1 / 10 }}

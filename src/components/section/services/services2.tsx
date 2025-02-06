@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function Services({ services }: { services: Service[] }) {
 	return (
-		<div className="container">
+		<div className="container mt-24">
 			<SectionTitle
 				title="Services"
 				// description="Get your company heading in the right direction with our digital marketing strategist"

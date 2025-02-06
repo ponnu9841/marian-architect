@@ -76,10 +76,12 @@ export default function Portfolio() {
 					title="Portfolio"
 					// description="Get your company heading in the right direction with our digital marketing strategist"
 				/>
-				<div>
+				<div className="max-h-screen overflow-y-scroll no-scrollbar">
 					<CarouselSlider
 						carouselContentClassName="justify-stretch max-w-[100%]"
+						carouselClassName="h-full"
 						id="portfolio-slider"
+						orientation="vertical"
 					>
 						{portfolios.map((portfolio, index) => (
 							<div className="mt-5 min-w-full" key={index}>

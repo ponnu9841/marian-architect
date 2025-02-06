@@ -57,7 +57,18 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		fontSize: {
+			sm: 'var(--font-size-sm)',
+			base: 'var(--font-size-base)',
+			lg: 'var(--font-size-lg)',
+			xl: 'var(--font-size-xl)',
+			// 2xl: 'var(--font-size-)',
+			// 3xl: 'var(--font-size-)',
+			// 4xl: 'var(--font-size-)',
+			// 5xl: 'var(--font-size-)',
+			// 6xl: 'var(--font-size-)',
+		}
   	}
   },
   plugins: [typography, tailwindcssAnimate],

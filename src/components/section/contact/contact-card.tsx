@@ -19,7 +19,7 @@ export default function ContactCard(props: ContactCardProps) {
 	return (
 		<>
 			<CardContent>
-				<div className="flex space-x-10">
+				<div className="flex space-x-6">
 					<div>
 						<NextImage
 							src={icon}
@@ -31,8 +31,8 @@ export default function ContactCard(props: ContactCardProps) {
 							<AnimateText text={title} />
 						</CardTitle>
 						<CardDescription className="text-base mt-3">
-							<div className="break-all">{line1}</div>
-							<div>{line2}</div>
+							<div className="break-all whitespace-pre-line">{line1}</div>
+							<div className="whitespace-pre-line">{line2}</div>
 						</CardDescription>
 					</div>
 				</div>

@@ -16,6 +16,7 @@ import Heading from "@/components/heading";
 const CarouselSlider = (props: CarouselSliderProps) => {
 	const {
 		images,
+		carouselClassName,
 		carouselContentClassName,
 		carouselItemClassName,
 		cardContentClassName,
@@ -26,7 +27,7 @@ const CarouselSlider = (props: CarouselSliderProps) => {
 		showTitle = false,
 		enableScroll = false,
 		showArrow = true,
-		customArrow
+		customArrow,
 	} = props;
 	const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
 
@@ -72,7 +73,7 @@ const CarouselSlider = (props: CarouselSliderProps) => {
 	return (
 		<Carousel
 			plugins={[plugin.current]}
-			className="w-full relative carousel"
+			className={cn("w-full relative carousel", carouselClassName)}
 			onMouseEnter={plugin.current.stop}
 			onMouseLeave={plugin.current.reset}
 			id={id || "carousel-slider"}
