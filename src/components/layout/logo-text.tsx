@@ -6,7 +6,7 @@ export default function LogoText() {
 		<div
 			className={`text-primary text-3xl tracking-widest font-bold ${teko.className}`}
 		>
-			Marian<span className="text-secondary">Architect</span>
+			Marian<span className="text-secondary">{" "}Architect</span>
 		</div>
 	);
 }
