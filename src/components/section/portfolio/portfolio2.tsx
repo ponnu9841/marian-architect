@@ -6,6 +6,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 // import { motion } from "motion/react";
 import { useState } from "react";
 import PortfolioImage from "./portfolio-image";
+import { Button } from "@/components/ui/button";
 // import CarouselSlider from "@/components/carousel";
 
 const portfolios = [
@@ -18,6 +19,9 @@ const portfolios = [
 			{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
 			{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
 			{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
+			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
 		],
 	},
 	{
@@ -29,6 +33,9 @@ const portfolios = [
 			{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
 			{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
 			{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
+			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
 		],
 	},
 	{
@@ -40,6 +47,9 @@ const portfolios = [
 			{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
 			{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
 			{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
+			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
 		],
 	},
 	{
@@ -51,6 +61,9 @@ const portfolios = [
 			{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
 			{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
 			{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
+			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
 		],
 	},
 ];
@@ -70,8 +83,8 @@ export default function Portfolio() {
 	};
 
 	return (
-		<section id="portfolio relative">
-			<div className="px-2 pt-24 mb-0">
+		<section id="portfolio">
+			<div className="px-2 pt-24 mb-0 relative">
 				<SectionTitle
 					title="Portfolio"
 					// description="Get your company heading in the right direction with our digital marketing strategist"
@@ -83,42 +96,48 @@ export default function Portfolio() {
 						id="portfolio-slider"
 						orientation="vertical"
 					> */}
-						{portfolios.map((portfolio, index) => (
-							<div className="mt-5 min-w-full" key={index}>
-								<Heading
-									title={portfolio.title}
-									variant="h3"
-									className="mb-3"
-								/>
+					{portfolios.map((portfolio, index) => (
+						<div className="mt-5 min-w-full" key={index}>
+							<Heading title={portfolio.title} variant="h3" className="mb-3" />
 
-								<ul
-									className="w-full grid grid-cols-1 lg:grid-cols-9 gap-2"
-									key={index}
-								>
-									{portfolio.images.map((image, index2) => {
-										let colspan = "col-span-3";
-										if (index2 === 3 || index2 === 5) {
-											colspan = "col-span-2";
-										}
-										if (index2 === 4) {
-											colspan = "col-span-5";
-										}
+							<ul
+								className="w-full grid grid-cols-1 lg:grid-cols-9 gap-2"
+								key={index}
+							>
+								{portfolio.images.map((image, index2) => {
+									let colspan = "col-span-3";
+									if (index2 === 3 || index2 === 5) {
+										colspan = "col-span-2";
+									}
+									if (index2 === 4) {
+										colspan = "col-span-5";
+									}
+									if (index2 === 7) {
+										colspan = "col-span-2";
+									}
+									if (index2 === 8) {
+										colspan = "col-span-4";
+									}
 
-										return (
-											<li
-												key={index2}
-												className={`overflow-hidden max-h-[280px] ${colspan}`}
-											>
-												<PortfolioImage
-													image={image}
-													openDialog={() => openDialog(index2, index)}
-												/>
-											</li>
-										);
-									})}
-								</ul>
-							</div>
-						))}
+									return (
+										<li
+											key={index2}
+											className={`overflow-hidden max-h-[280px] ${colspan}`}
+											onClick={() => openDialog(index2, index)}
+										>
+											<PortfolioImage image={image} />
+										</li>
+									);
+								})}
+							</ul>
+						</div>
+					))}
+
+					<div className="text-center">
+						<Button variant="default" size="lg" className="mt-8 text-2xl py-8">
+							View More
+						</Button>
+					</div>
 					{/* </CarouselSlider> */}
 				</div>
 			</div>

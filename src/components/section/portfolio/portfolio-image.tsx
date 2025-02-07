@@ -3,10 +3,9 @@ import {motion} from "motion/react";
 
 type PortfolioImageProps = {
     image: { id: number, src: string; alt: string };
-    openDialog: () => void;
 };
 
-export default function PortfolioImage({image, openDialog} : PortfolioImageProps) {
+export default function PortfolioImage({image} : PortfolioImageProps) {
 	return (
 		<motion.div
 			initial={{ opacity: 0, scale: 0.3, x: -50 }}
@@ -23,7 +22,6 @@ export default function PortfolioImage({image, openDialog} : PortfolioImageProps
 				alt={image.alt || "Image"}
 				className="aspect-square hover:min-w-full z-20 transition-all duration-300 flex justify-center"
 				imageClassName="object-cover transition-all duration-300"
-				onClick={() => openDialog()}
 			/>
 		</motion.div>
 	);

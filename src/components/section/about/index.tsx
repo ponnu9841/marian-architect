@@ -24,7 +24,7 @@ export default function About() {
 						/> */}
 						<NextImage src="/works/1.jpg" />
 					</div>
-					<div className="flex-1 bg-background">
+					<div className="flex-1">
 						<TitleBadge title="About Us" />
 						<h2 className="text-3xl xl:text-5xl mt-3 mb-2">
 							<AnimateText text="What We Do" />
