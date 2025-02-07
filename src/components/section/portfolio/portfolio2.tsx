@@ -83,8 +83,8 @@ export default function Portfolio() {
 	};
 
 	return (
-		<section id="portfolio">
-			<div className="px-2 pt-24 mb-0 relative">
+		<section id="portfolio" className="px-2 pt-24 mb-0 relative z-5">
+			<div>
 				<SectionTitle
 					title="Portfolio"
 					// description="Get your company heading in the right direction with our digital marketing strategist"

@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { setCurrentSection } from "@/redux/features/utils-slice";
 import { useRouter } from "next/router";
 
+const sections = ["home", "portfolio", "about", "services", "contact"];
+
 export default function Layout(props: ReactChildren) {
 	const { children } = props;
 	const dispatch = useAppDispatch();
@@ -32,24 +34,49 @@ export default function Layout(props: ReactChildren) {
 	// 	return () => window.removeEventListener("scroll", handleScroll);
 	// }, []);
 
+	// useEffect(() => {
+	// 	const sections = document.querySelectorAll("section");
+
+	// 	const observer = new IntersectionObserver(
+	// 		(entries) => {
+	// 			console.log(entries)
+	// 			entries.forEach((entry) => {
+	// 				if (entry.isIntersecting) {
+	// 					dispatch(setCurrentSection(entry.target.id));
+	// 				}
+	// 			});
+	// 		},
+	// 		{ threshold: 0.5 } // Trigger when 60% of the section is visible
+	// 	);
+
+	// 	sections.forEach((section) => observer.observe(section));
+
+	// 	return () => observer.disconnect();
+	// }, []);
+
 	useEffect(() => {
-		const sections = document.querySelectorAll("section");
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						dispatch(setCurrentSection(entry.target.id));
-					}
-				});
-			},
-			{ threshold: 0.5 } // Trigger when 60% of the section is visible
-		);
-
-		sections.forEach((section) => observer.observe(section));
-
-		return () => observer.disconnect();
-	}, []);
+		const handleScroll = () => {
+		  let currentSection = "";
+		  sections.forEach((id) => {
+			const section = document.getElementById(id);
+			if (section) {
+			  const rect = section.getBoundingClientRect();
+			  if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+				currentSection = id;
+			  }
+			}
+		  });
+		  dispatch(setCurrentSection(currentSection));
+		//   setActiveSection(currentSection);
+		};
+	
+		window.addEventListener("scroll", handleScroll);
+		handleScroll(); // Run on mount
+	
+		return () => {
+		  window.removeEventListener("scroll", handleScroll);
+		};
+	  }, []);
 
 	return (
 		<>
