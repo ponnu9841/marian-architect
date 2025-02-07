@@ -134,7 +134,7 @@ export default function Portfolio() {
 					))}
 
 					<div className="text-center">
-						<Button variant="default" size="lg" className="mt-8 text-2xl py-8">
+						<Button variant="default" size="lg" className="mt-8 text-base py-6">
 							View More
 						</Button>
 					</div>

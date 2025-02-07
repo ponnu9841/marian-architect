@@ -56,7 +56,7 @@ export default function Layout(props: ReactChildren) {
 			<Header />
 			{children}
 			<Footer />
-			{/* {router.pathname !== "/404" && <PreLoader />} */}
+			{router.pathname !== "/404" && <PreLoader />}
 			<ScrollToTop />
 		</>
 	);
