@@ -4,6 +4,8 @@ import type { AppProps } from "next/app";
 import { jost } from "../utils/fonts";
 import { ThemeProvider } from "@/components/theme-provider";
 import CustomCursor from "@/components/custom-cursor";
+import store from "@/redux/store";
+import { Provider } from "react-redux";
 
 //eslint-disable-next-line
 export type PageLayoutType<P = {}, IP = P> = NextPage<P, IP> & {
@@ -18,18 +20,20 @@ export default function App(props: AppPropsWithLayout) {
 	const { Component, pageProps } = props;
 	const getLayout = Component.getLayout ?? ((page) => page);
 	return (
-		<div
-			className={`min-h-screen w-full ${jost.variable}`}
-		>
-			<ThemeProvider
-				attribute="class"
-				defaultTheme="dark"
-				enableSystem
-				disableTransitionOnChange
+		<Provider store={store}>
+			<div
+				className={`min-h-screen w-full ${jost.variable}`}
 			>
-				{getLayout(<Component {...pageProps} />)}
-				<CustomCursor />
-			</ThemeProvider>
-		</div>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="dark"
+					enableSystem
+					disableTransitionOnChange
+				>
+					{getLayout(<Component {...pageProps} />)}
+					<CustomCursor />
+				</ThemeProvider>
+			</div>
+		</Provider>
 	);
 }

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import NextImage from "../ui/Image";
 import Link from "next/link";
 // import { ThemeToggle } from "./ThemeToggle";
@@ -10,51 +10,22 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
-import { useRouter } from "next/router";
 import LogoText from "./logo-text";
-
-const navItems = [
-	{ name: "Home", link: "/" },
-	{ name: "Portfolio", link: "/portfolio" },
-	{ name: "Services", link: "/services" },
-	{ name: "About", link: "/about" },
-	{ name: "Contact", link: "/contact" },
-];
+import { useAppSelector } from "@/redux/hooks/use-selector";
+import { navItems } from "@/utils";
 
 export default function Header() {
 	const headerRef = useRef<HTMLDivElement | null>(null);
 	const [isOpen, setIsOpen] = useState(false);
-	const router = useRouter();
-	useEffect(() => {
-		// const windowHeight = window.innerHeight;
-		const handleScroll = () => {
-			if (headerRef.current) {
-				// const topHeight = 0.65 * windowHeight;
-				const classes = ["shadow-md", "border-none", "bg-background"];
-				if (window.scrollY > 0) {
-					headerRef.current.classList.add(...classes);
-				} else {
-					headerRef.current.classList.remove(
-						...classes,
-						"border-b",
-						"borer-gray-500"
-					);
-				}
-			}
-		};
+	
+	const { currentSection } = useAppSelector((state) => state.rootReducer.utils);
 
-		window.addEventListener("scroll", handleScroll);
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
+	
+
 	return (
 		<header className="bg-transparent z-100 ">
 			{/* <InfoBar /> */}
-			<div
-				ref={headerRef}
-				className="w-full z-50 fixed top-0 left-0 w-full"
-			>
+			<div ref={headerRef} className="w-full z-50 fixed top-0 left-0 w-full">
 				<nav className="flex items-center gap-4 justify-between w-full h-full container">
 					<Link href="/" className="flex justify-start items-center space-x-2">
 						<NextImage
@@ -75,7 +46,9 @@ export default function Header() {
 										key={item.name}
 										href={item.link}
 										className={`inline-flex items-center px-1 text-base tracking-wider hover:text-primary trnsition-all duration-300 ${
-											router.pathname === item.link ? "text-primary" : ""
+											currentSection === item.id
+												? "text-primary"
+												: ""
 										}`}
 									>
 										{item.name}

@@ -6,7 +6,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 // import { motion } from "motion/react";
 import { useState } from "react";
 import PortfolioImage from "./portfolio-image";
-import CarouselSlider from "@/components/carousel";
+// import CarouselSlider from "@/components/carousel";
 
 const portfolios = [
 	{
@@ -70,19 +70,19 @@ export default function Portfolio() {
 	};
 
 	return (
-		<>
-			<div className="container mt-24 mb-0">
+		<section id="portfolio relative">
+			<div className="px-2 pt-24 mb-0">
 				<SectionTitle
 					title="Portfolio"
 					// description="Get your company heading in the right direction with our digital marketing strategist"
 				/>
-				<div className="max-h-screen overflow-y-scroll no-scrollbar">
-					<CarouselSlider
+				<div className="">
+					{/* <CarouselSlider
 						carouselContentClassName="justify-stretch max-w-[100%]"
 						carouselClassName="h-full"
 						id="portfolio-slider"
 						orientation="vertical"
-					>
+					> */}
 						{portfolios.map((portfolio, index) => (
 							<div className="mt-5 min-w-full" key={index}>
 								<Heading
@@ -92,7 +92,7 @@ export default function Portfolio() {
 								/>
 
 								<ul
-									className="w-full grid grid-cols-1 lg:grid-cols-9 gap-8"
+									className="w-full grid grid-cols-1 lg:grid-cols-9 gap-2"
 									key={index}
 								>
 									{portfolio.images.map((image, index2) => {
@@ -107,7 +107,7 @@ export default function Portfolio() {
 										return (
 											<li
 												key={index2}
-												className={`overflow-hidden max-h-[220px] ${colspan}`}
+												className={`overflow-hidden max-h-[280px] ${colspan}`}
 											>
 												<PortfolioImage
 													image={image}
@@ -119,7 +119,7 @@ export default function Portfolio() {
 								</ul>
 							</div>
 						))}
-					</CarouselSlider>
+					{/* </CarouselSlider> */}
 				</div>
 			</div>
 			<Dialog open={selectedImage !== null} onOpenChange={closeDialog}>
@@ -133,6 +133,6 @@ export default function Portfolio() {
 					)}
 				</DialogContent>
 			</Dialog>
-		</>
+		</section>
 	);
 }

@@ -24,7 +24,7 @@ const aboutLinks = [
 
 export default function Footer() {
 	return (
-		<footer className="flex justify-center w-full max-w-full">
+		<footer className="flex justify-center w-full max-w-full relative bg-background">
 			<div className="w-full">
 				<Separator />
 				<div className="container pt-20 pb-6 w-full">
