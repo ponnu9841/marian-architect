@@ -1,3 +1,4 @@
+import BackgroundScroll from "@/components/background-scroll";
 import Carousel from "@/components/carousel-new";
 import Layout from "@/components/layout";
 // import ScrollableSection from "@/components/layout/scrollable-section";
@@ -8,8 +9,16 @@ import Contact from "@/components/section/contact";
 import Portfolio from "@/components/section/portfolio/portfolio2";
 import Services from "@/components/section/services/services2";
 import { contactData, services } from "@/dummy-data";
+import { useScroll } from "motion/react";
+import { useRef } from "react";
 
 export default function Home() {
+	
+	const containerRef = useRef<HTMLDivElement>(null);
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ["start start", "end end"],
+	});
 	return (
 		<div>
 			{/* <Banner
@@ -23,13 +32,13 @@ export default function Home() {
 				<Carousel />
 			</div>
 
-			<Portfolio />
-
-			<Services services={services} />
-
-			<About />
-
-			<Contact contactData={contactData} />
+			<div className="relative z-10 overflow-hidden" ref={containerRef}>
+				<BackgroundScroll scrollYProgress={scrollYProgress} />
+				<Portfolio />
+				<Services services={services} />
+				<About />
+				<Contact contactData={contactData} />
+			</div>
 		</div>
 	);
 }

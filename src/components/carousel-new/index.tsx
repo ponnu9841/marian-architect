@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 import NextImage from "../ui/Image";
+import { useAppDispatch } from "@/redux/hooks/use-dispatch";
+import { setCurrentSection } from "@/redux/features/utils-slice";
 
 const carouselItems = [
 	{
@@ -45,6 +47,7 @@ const carouselItems = [
 ];
 
 export default function Carousel() {
+	const dispatch = useAppDispatch();
 	const [items, setItems] = useState(carouselItems);
 	// const [isNext, setIsNext] = useState(true);
 	const carouselRef = useRef<HTMLDivElement>(null);
@@ -93,48 +96,69 @@ export default function Carousel() {
 		};
 	}, []); //eslint-disable-line
 
+	useEffect(() => {
+		// const windowHeight = window.innerHeight;
+		const handleScroll = () => {
+			if (carouselRef.current) {
+				// const topHeight = 0.65 * windowHeight;
+				if (window.scrollY === 0) {
+					dispatch(setCurrentSection("home"));
+				}
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
 	return (
-		<div className="carousel min-h-screen max-w-full" ref={carouselRef}>
-			<div className="list">
-				{items.map((item, index) => (
-					<div key={index} className="item max-w-full">
-						{/* eslint-disable-next-line */}
-						<img src={item.image} alt="" className="max-w-full" />
-						
-					</div>
-				))}
-			</div>
-			<div className="thumbnail">
-				{items.map((item, index) => (
-					<div key={index} className="item">
-						<NextImage
-							src={item.image}
-							alt={item.title || "banner-image"}
-							imageClassName="rounded-xl object-cover"
-						/>
-					</div>
-				))}
-			</div>
-			<div className="absolute left-[23%] top-[88%]" style={{ zIndex: "100" }}>
-				<Button
-					size="icon"
-					variant="ghost"
-					id="prev"
-					onClick={() => showSlider("prev")}
-					className="rounded-full border border-primary"
+		<section id="home">
+			<div className="carousel min-h-screen max-w-full" ref={carouselRef}>
+				<div className="list">
+					{items.map((item, index) => (
+						<div key={index} className="item max-w-full">
+							{/* eslint-disable-next-line */}
+							<img src={item.image} alt="" className="max-w-full" />
+						</div>
+					))}
+				</div>
+				<div className="thumbnail">
+					{items.map((item, index) => (
+						<div key={index} className="item">
+							<NextImage
+								src={item.image}
+								alt={item.title || "banner-image"}
+								imageClassName="rounded-xl object-cover"
+							/>
+						</div>
+					))}
+				</div>
+				<div
+					className="absolute left-[23%] top-[88%]"
+					style={{ zIndex: "100" }}
 				>
-					<FaArrowLeft />
-				</Button>
-				<Button
-					size="icon"
-					variant="ghost"
-					id="next"
-					onClick={() => showSlider("next")}
-					className="rounded-full border border-primary ml-3"
-				>
-					<FaArrowRight />
-				</Button>
+					<Button
+						size="icon"
+						variant="ghost"
+						id="prev"
+						onClick={() => showSlider("prev")}
+						className="rounded-full border border-primary"
+					>
+						<FaArrowLeft />
+					</Button>
+					<Button
+						size="icon"
+						variant="ghost"
+						id="next"
+						onClick={() => showSlider("next")}
+						className="rounded-full border border-primary ml-3"
+					>
+						<FaArrowRight />
+					</Button>
+				</div>
 			</div>
-		</div>
+		</section>
 	);
 }
