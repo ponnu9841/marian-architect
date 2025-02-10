@@ -4,8 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 import NextImage from "../ui/Image";
-import { useAppDispatch } from "@/redux/hooks/use-dispatch";
-import { setCurrentSection } from "@/redux/features/utils-slice";
 
 const carouselItems = [
 	{
@@ -47,7 +45,6 @@ const carouselItems = [
 ];
 
 export default function Carousel() {
-	const dispatch = useAppDispatch();
 	const [items, setItems] = useState(carouselItems);
 	// const [isNext, setIsNext] = useState(true);
 	const carouselRef = useRef<HTMLDivElement>(null);
@@ -95,23 +92,6 @@ export default function Carousel() {
 			if (autoNextRef.current) clearTimeout(autoNextRef.current);
 		};
 	}, []); //eslint-disable-line
-
-	useEffect(() => {
-		// const windowHeight = window.innerHeight;
-		const handleScroll = () => {
-			if (carouselRef.current) {
-				// const topHeight = 0.65 * windowHeight;
-				if (window.scrollY === 0) {
-					dispatch(setCurrentSection("home"));
-				}
-			}
-		};
-
-		window.addEventListener("scroll", handleScroll);
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
 
 	return (
 		<section id="home">
