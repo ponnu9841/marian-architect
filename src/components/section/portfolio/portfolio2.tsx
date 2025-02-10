@@ -1,5 +1,5 @@
 import GalleryDrawerContent from "@/components/gallery-drawer-content";
-import Heading from "@/components/heading";
+// import Heading from "@/components/heading";
 import SectionTitle from "@/components/section-title";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 // import NextImage from "@/components/ui/Image";
@@ -22,6 +22,8 @@ const portfolios = [
 			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
 			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
 			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
+			{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
 		],
 	},
 	{
@@ -36,6 +38,8 @@ const portfolios = [
 			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
 			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
 			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
+			{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
 		],
 	},
 	{
@@ -50,6 +54,8 @@ const portfolios = [
 			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
 			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
 			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
+			{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
 		],
 	},
 	{
@@ -64,6 +70,8 @@ const portfolios = [
 			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
 			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
 			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
+			{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
+			{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
 		],
 	},
 ];
@@ -97,26 +105,23 @@ export default function Portfolio() {
 						orientation="vertical"
 					> */}
 					{portfolios.map((portfolio, index) => (
-						<div className="mt-5 min-w-full" key={index}>
-							<Heading title={portfolio.title} variant="h3" className="mb-3" />
+						<div className="mb-2 min-w-full" key={index}>
+							{/* <Heading title={portfolio.title} variant="h3" className="mb-3" /> */}
 
 							<ul
-								className="w-full grid grid-cols-1 lg:grid-cols-9 gap-2"
+								className="w-full grid grid-cols-1 lg:grid-cols-12 gap-2"
 								key={index}
 							>
 								{portfolio.images.map((image, index2) => {
 									let colspan = "col-span-3";
-									if (index2 === 3 || index2 === 5) {
+									if(index2 === 4 || index2 === 6 || index2 === 7) {
 										colspan = "col-span-2";
 									}
-									if (index2 === 4) {
-										colspan = "col-span-5";
+									if(index2 === 10){
+										colspan = "col-span-6"
 									}
-									if (index2 === 7) {
-										colspan = "col-span-2";
-									}
-									if (index2 === 8) {
-										colspan = "col-span-4";
+									if(index2 === 5) {
+										colspan = "col-span-6"
 									}
 
 									return (
