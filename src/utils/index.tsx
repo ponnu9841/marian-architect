@@ -7,10 +7,10 @@ import { contactData, services } from "@/dummy-data";
 
 export const navItems = [
 	{ name: "Home", link: "/", id: "home" },
-	{ name: "Portfolio", link: "/portfolio", id: "portfolio" },
-	{ name: "Services", link: "/services", id: "services" },
-	{ name: "About", link: "/about", id: "about" },
-	{ name: "Contact", link: "/contact", id: "contact" },
+	{ name: "Portfolio", link: "#portfolio", id: "portfolio" },
+	{ name: "Services", link: "#services", id: "services" },
+	{ name: "About", link: "#about", id: "about" },
+	{ name: "Contact", link: "#contact", id: "contact" },
 ];
 
 export const sections = [

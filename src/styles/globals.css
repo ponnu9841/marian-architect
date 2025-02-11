@@ -3,6 +3,7 @@
 @tailwind utilities;
 * {
 	font-family: var(--font-jost);
+	scroll-behavior: smooth;
 }
 .font-alt {
 	font-family: var(--font-cedarville-cursive);

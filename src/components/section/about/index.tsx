@@ -15,14 +15,14 @@ export default function About() {
 	const router = useRouter();
 	return (
 		<section id="about">
-			<div className="container relative pt-24">
-				<div className="flex flex-col md:flex-row gap-8">
-					<div className="flex-1">
+			<div className="container relative pt-10 md:pt-24">
+				<div className="flex flex-col md:flex-row gap-8 items-center">
+					<div className="flex-1 max-w-[550px]">
 						{/* <ParallaxTiltMultiple
 							leftImage="/works/1.jpg"
 							rightImage="/portfolio.webp"
 						/> */}
-						<NextImage src="/works/1.jpg" />
+						<NextImage src="/works/1.jpg" className="aspect-square" imageClassName="object-cover" />
 					</div>
 					<div className="flex-1">
 						<TitleBadge title="About Us" />

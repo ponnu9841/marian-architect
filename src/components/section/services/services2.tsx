@@ -5,12 +5,12 @@ import { motion } from "motion/react";
 export default function Services({ services }: { services: Service[] }) {
 	return (
 		<section id="services">
-			<div className="container pt-24">
+			<div className="container pt-10 md:pt-24">
 				<SectionTitle
 					title="Services"
 					// description="Get your company heading in the right direction with our digital marketing strategist"
 				/>
-				<div className="flex flex-wrap sm:justify-start lg:justify-center -mx-6 2xl:-mx-4 mt-12">
+				<div className="flex flex-wrap sm:justify-start lg:justify-center -mx-6 2xl:-mx-4 mt-4 md:mt-12">
 					{services.map((service, index) => (
 						<motion.div
 							key={index}
