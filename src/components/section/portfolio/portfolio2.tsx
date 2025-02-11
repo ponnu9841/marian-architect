@@ -9,148 +9,105 @@ import PortfolioImage from "./portfolio-image";
 import { Button } from "@/components/ui/button";
 // import CarouselSlider from "@/components/carousel";
 
-const portfolios = [
-	{
-		title: "Portfolio 1",
-		images: [
-			{ id: 1, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 2, src: "/works/1.jpg", alt: "Image 1" },
-			{ id: 3, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
-			{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
-			{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
-			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
-			{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
-		],
-	},
-	{
-		title: "Portfolio 2",
-		images: [
-			{ id: 1, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 2, src: "/works/1.jpg", alt: "Image 1" },
-			{ id: 3, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
-			{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
-			{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
-			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
-			{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
-		],
-	},
-	{
-		title: "Portfolio 3",
-		images: [
-			{ id: 1, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 2, src: "/works/1.jpg", alt: "Image 1" },
-			{ id: 3, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
-			{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
-			{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
-			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
-			{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
-		],
-	},
-	{
-		title: "Portfolio 4",
-		images: [
-			{ id: 1, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 2, src: "/works/1.jpg", alt: "Image 1" },
-			{ id: 3, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
-			{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
-			{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
-			{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
-			{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
-			{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
-		],
-	},
+const portfolio = [
+	{ id: 1, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 2, src: "/works/1.jpg", alt: "Image 1" },
+	{ id: 3, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
+	{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
+	{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
+	{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
+	{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
+	{ id: 1, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 2, src: "/works/1.jpg", alt: "Image 1" },
+	{ id: 3, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
+	{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
+	{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
+	{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
+	{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
+	{ id: 1, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 2, src: "/works/1.jpg", alt: "Image 1" },
+	{ id: 3, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
+	{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
+	{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
+	{ id: 9, src: "/works/3.jpg", alt: "Image 1" },
+	{ id: 10, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 11, src: "/works/1.jpg", alt: "Image 1" },
+	{ id: 1, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 2, src: "/works/1.jpg", alt: "Image 1" },
+	{ id: 3, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 4, src: "/works/1.jpg", alt: "Image 3" },
+	{ id: 5, src: "/works/3.jpg", alt: "Image 1" },
+	{ id: 6, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 7, src: "/portfolio.webp", alt: "Image 1" },
+	{ id: 8, src: "/works/1.jpg", alt: "Image 1" },
 ];
 
 export default function Portfolio() {
 	const [selectedImage, setSelectedImage] = useState<number | null>(null);
-	const [images, setImages] = useState<
-		{ id: number; src: string; alt: string }[]
-	>([]);
-	const openDialog = (id: number, portfolioIndex: number) => {
-		setImages(portfolios[portfolioIndex].images);
-		setSelectedImage(id + 1);
+	const openDialog = (id: number) => {
+		setSelectedImage(id);
 	};
 	const closeDialog = () => {
 		setSelectedImage(null);
-		setImages([]);
 	};
 
 	return (
-		<section id="portfolio" className="px-2 pt-24 mb-0 relative z-5">
+		<section id="portfolio" className="px-2 pt-10 md:pt-24 mb-0 relative z-5">
 			<div>
-				<SectionTitle
-					title="Portfolio"
-					// description="Get your company heading in the right direction with our digital marketing strategist"
-				/>
+				<div className="mb-4">
+					<SectionTitle
+						title="Portfolio"
+						// description="Get your company heading in the right direction with our digital marketing strategist"
+					/>
+				</div>
 				<div className="">
-					{/* <CarouselSlider
-						carouselContentClassName="justify-stretch max-w-[100%]"
-						carouselClassName="h-full"
-						id="portfolio-slider"
-						orientation="vertical"
-					> */}
-					{portfolios.map((portfolio, index) => (
-						<div className="mb-2 min-w-full" key={index}>
-							{/* <Heading title={portfolio.title} variant="h3" className="mb-3" /> */}
+					<ul className="w-full grid grid-cols-1 lg:grid-cols-12 gap-2">
+						{portfolio.map((image, index) => {
+							let colspan = "col-span-12 lg:col-span-3";
+							if (index === 4 || index === 6 || index === 7) {
+								colspan = "col-span-12 lg:col-span-2";
+							}
+							// if (index !== 0 && index % 10 === 0) {  // 11th image
+							// 	colspan = "col-span-12 lg:col-span-6";
+							// }
+							if (index !== 0 && index % 5 === 0) {
+								colspan = "col-span-12 lg:col-span-6";
+							}
 
-							<ul
-								className="w-full grid grid-cols-1 lg:grid-cols-12 gap-2"
-								key={index}
-							>
-								{portfolio.images.map((image, index2) => {
-									let colspan = "col-span-3";
-									if(index2 === 4 || index2 === 6 || index2 === 7) {
-										colspan = "col-span-2";
-									}
-									if(index2 === 10){
-										colspan = "col-span-6"
-									}
-									if(index2 === 5) {
-										colspan = "col-span-6"
-									}
-
-									return (
-										<li
-											key={index2}
-											className={`overflow-hidden max-h-[280px] ${colspan}`}
-											onClick={() => openDialog(index2, index)}
-										>
-											<PortfolioImage image={image} />
-										</li>
-									);
-								})}
-							</ul>
-						</div>
-					))}
-
+							return (
+								<li
+									key={index}
+									className={`overflow-hidden max-h-[280px] ${colspan}`}
+									onClick={() => openDialog(index)}
+								>
+									<PortfolioImage image={image} />
+								</li>
+							);
+						})}
+					</ul>
 					<div className="text-center">
 						<Button variant="default" size="lg" className="mt-8 text-base py-6">
 							View More
 						</Button>
 					</div>
-					{/* </CarouselSlider> */}
 				</div>
 			</div>
 			<Dialog open={selectedImage !== null} onOpenChange={closeDialog}>
 				<DialogContent className="max-w-[90vw] w-full max-h-[90vh] h-full p-5 text-white bg-transparent border-none">
-					{selectedImage && (
+					{selectedImage !== null && (
 						<GalleryDrawerContent
-							images={images}
+							images={portfolio}
 							selectedImage={selectedImage}
 							setSelectedImage={setSelectedImage}
 						/>

@@ -31,17 +31,17 @@ export default function GalleryDrawerContent(props: GalleryImagesProps) {
 
 	return (
 		<>
-			{selectedImage && (
+			{selectedImage !== null && (
 				<div className="relative w-full h-full">
 					<DialogTitle
 						aria-describedby=""
 						className="text-center relative z-10 mt-2"
 					>
-						{images[selectedImage - 1].alt || "Image"}
+						{images[selectedImage].alt || "Image"}
 					</DialogTitle>
 					<Image
-						src={images[selectedImage - 1].src || "/no-image.png"}
-						alt={images[selectedImage - 1].alt || "/no-image.png"}
+						src={images[selectedImage].src || "/no-image.png"}
+						alt={images[selectedImage].alt || "/no-image.png"}
 						fill
 						className="object-contain"
 						priority

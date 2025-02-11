@@ -73,7 +73,7 @@ export default function Footer() {
 						</div>
 						<div className="w-full md:w-[calc(50%-1rem)] lg:flex-1 lg:flex gap-6">
 							<div className="lg:flex-1">
-								<div className="text-xl font-semibold mb-4">Services</div>
+								<div className="text-xl font-normal md-3 md:mb-4">Services</div>
 								{services.map((service, index) => (
 									<div key={index} className="mb-3">
 										<Link
@@ -86,7 +86,7 @@ export default function Footer() {
 								))}
 							</div>
 							<div className="lg:flex-1">
-								<div className="text-xl font-semibold mb-4">Products</div>
+								<div className="text-xl font-normal md-3 md:mb-4">Products</div>
 								{productLinks.map((item, index) => (
 									<div key={index} className="mb-3">
 										<Link
@@ -100,7 +100,7 @@ export default function Footer() {
 								))}
 							</div>
 							<div className="lg:flex-1">
-								<div className="text-xl font-semibold mb-4">About</div>
+								<div className="text-xl font-normal md-3 md:mb-4">About</div>
 								{aboutLinks.map((item, index) => (
 									<div key={index} className="mb-3">
 										<Link

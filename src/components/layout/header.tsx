@@ -82,7 +82,7 @@ export default function Header() {
 											<Link
 												key={item.name}
 												href={item.link}
-												className="text-gray-600 hover:text-primary block px-3 py-2 text-base font-medium"
+												className={`text-gray-600 hover:text-primary block px-3 py-2 text-base font-medium ${currentSection === item.id ? "text-primary" : ""}`}
 												onClick={() => setIsOpen(false)}
 											>
 												{item.name}

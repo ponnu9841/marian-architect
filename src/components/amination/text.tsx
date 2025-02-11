@@ -4,7 +4,7 @@ function AnimateText({ text }: { text?: string }) {
 	const textArray = text?.split(" ");
 
 	return (
-		<div className="App">
+		<div className="font-normal">
 			{textArray?.map((el, i) => (
 				<motion.span
 					initial={{ opacity: 0 }}

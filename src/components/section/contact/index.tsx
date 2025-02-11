@@ -7,9 +7,9 @@ export default function Contact(props: { contactData: ContactCardProps[] }) {
 	const { contactData } = props;
 	return (
 		<section id="contact">
-			<div className="container mb-6 pt-24 relative">
+			<div className="container mb-6 pt-10 md:pt-24 relative">
 				<SectionTitle title="Contact" />
-				<div className="py-12">
+				<div className="py-6 md:py-12">
 					<div className="flex flex-wrap justify-center items-stretch gap-8">
 						{contactData.map((item, index) => (
 							<motion.div
