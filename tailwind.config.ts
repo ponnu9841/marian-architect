@@ -51,6 +51,16 @@ export default {
   				'3': 'hsla(var(--chart-3))',
   				'4': 'hsla(var(--chart-4))',
   				'5': 'hsla(var(--chart-5))'
+  			},
+  			sidebar: {
+  				DEFAULT: 'hsl(var(--sidebar-background))',
+  				foreground: 'hsl(var(--sidebar-foreground))',
+  				primary: 'hsl(var(--sidebar-primary))',
+  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				accent: 'hsl(var(--sidebar-accent))',
+  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				border: 'hsl(var(--sidebar-border))',
+  				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
   		borderRadius: {
@@ -58,17 +68,12 @@ export default {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
-		fontSize: {
-			sm: 'var(--font-size-sm)',
-			base: 'var(--font-size-base)',
-			lg: 'var(--font-size-lg)',
-			xl: 'var(--font-size-xl)',
-			// 2xl: 'var(--font-size-)',
-			// 3xl: 'var(--font-size-)',
-			// 4xl: 'var(--font-size-)',
-			// 5xl: 'var(--font-size-)',
-			// 6xl: 'var(--font-size-)',
-		}
+  		fontSize: {
+  			sm: 'var(--font-size-sm)',
+  			base: 'var(--font-size-base)',
+  			lg: 'var(--font-size-lg)',
+  			xl: 'var(--font-size-xl)'
+  		}
   	}
   },
   plugins: [typography, tailwindcssAnimate],

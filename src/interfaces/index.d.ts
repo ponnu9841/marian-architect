@@ -39,3 +39,13 @@ type CarouselSliderProps = CarouselCardProps & {
 	showArrow?: boolean;
 	customArrow?: React.ReactNode;
 };
+
+type ExtendedFile = File & {
+	url: string;
+};
+
+type Banner = {
+	id: string;
+	image: string;
+	alt?: string;
+}
