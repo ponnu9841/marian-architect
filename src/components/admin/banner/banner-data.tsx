@@ -24,14 +24,14 @@ export default function BannerData() {
   };
 
   return (
-    <div className="flex items-start gap-6">
+    <div className="flex flex-wrap items-start gap-6">
       {data.length > 0
         ? data.map((banner, index) => (
             <div key={index} className="max-w-[200px]">
               <div className="relative mb-3">
                 <NextImage
                   src={banner.image}
-                  className="aspect-square max-w-[200px]"
+                  className="aspect-square min-w-[200px]"
                 />
                 <div className="absolute bottom-0 right-0">
                   <DeleteDrawer

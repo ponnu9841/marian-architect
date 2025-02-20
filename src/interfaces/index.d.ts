@@ -47,5 +47,5 @@ type ExtendedFile = File & {
 type Banner = {
 	id: string;
 	image: string;
-	alt?: string;
+	alt?: string | null;
 }

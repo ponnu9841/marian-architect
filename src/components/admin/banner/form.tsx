@@ -60,7 +60,7 @@ export default function BannerForm() {
 
   return (
     <div>
-      {data.length < 3 ? (
+      {data.length < 5 ? (
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mt-4">
             <Label htmlFor="image">Image</Label>
