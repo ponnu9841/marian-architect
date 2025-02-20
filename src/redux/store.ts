@@ -3,7 +3,7 @@ import utilsReducer from "./features/utils-slice";
 import userReducer from "./features/user-slice";
 import bannerReducer from "./features/banner-slice";
 // import partnerReducer from "./features/partner-slice";
-// import serviceReducer from "./features/service-slice";
+import serviceReducer from "./features/service-slice";
 // import testimonialReducer from "./features/testimonial-slice";
 // import galleryReducer from "./features/gallery-slice";
 // import teamsReducer from "./features/teams-slice";
@@ -14,7 +14,7 @@ const combinedReducer = combineReducers({
   user: userReducer,
   utils: utilsReducer,
   banner: bannerReducer,
-  // service: serviceReducer,
+  service: serviceReducer,
   // gallery: galleryReducer,
   // contact: contactReducer,
 });
