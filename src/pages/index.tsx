@@ -9,17 +9,18 @@ import About from "@/components/section/about";
 import Contact from "@/components/section/contact";
 import Portfolio from "@/components/section/portfolio/portfolio2";
 import Services from "@/components/section/services/services2";
-import { contactData } from "@/dummy-data";
 import { useScroll } from "motion/react";
 import { useRef } from "react";
 
 interface HomeProps {
   banner: Banner[] | [];
-  services: Service[] | []
+  services: Service[] | [];
+  contact: Contact | null;
 }
 
 export default function Home(props: HomeProps) {
-  const { banner, services } = props;
+  const { banner, services, contact } = props;
+  console.log(contact)
 
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -44,7 +45,7 @@ export default function Home(props: HomeProps) {
         <Portfolio />
         <Services services={services} />
         <About />
-        <Contact contactData={contactData} />
+        <Contact contact={contact} />
       </div>
     </div>
   );
@@ -58,11 +59,13 @@ export async function getServerSideProps() {
   try {
     const banners = await axiosClient.get("/banner");
     const services = await axiosClient.get("/service");
+    const contact = await axiosClient.get("/contact");
 
     return {
       props: {
         banner: banners.data.data,
         services: services.data.data,
+        contact: contact.data.data,
       },
     };
   } catch (error) {

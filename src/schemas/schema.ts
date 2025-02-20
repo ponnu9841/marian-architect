@@ -92,15 +92,12 @@ export const contactSchema = z.object({
 	}),
 	contactTwo: z
 		.string()
-		.regex(/^\d{10}$/, {
-			message: "Phone number must be exactly 10 digits",
-		})
 		.optional(),
 	emailOne: z
 		.string()
 		.min(1, { message: "This field has to be filled." })
 		.email("This is not a valid email."),
-	emailTwo: z.string().email("This is not a valid email.").optional(),
+	emailTwo: z.string().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
