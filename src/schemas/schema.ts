@@ -55,10 +55,10 @@ export const partnerSchema = z.object({
 
 export const serviceSchema = z.object({
 	// image: z.custom<File[] | null>(fileValidation),
-	imageAlt: z.string().optional(),
+	alt: z.string().optional(),
 	title: z.string().min(3, "Title must be at least 3 characters"),
-	shortDescription: z.string().min(3, "Title must be at least 3 characters"),
-	longDescription: z.string().min(3, "Title must be at least 3 characters"),
+	shortDescription: z.string().optional(),
+	longDescription: z.string().optional(),
 });
 
 export const testimonialsSchema = z.object({

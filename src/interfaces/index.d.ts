@@ -10,10 +10,12 @@ type WorkCardProps = {
 };
 
 type Service = {
-	icon: string;
-	title: string;
-	description: string;
+	id: string;
 	image: string;
+	alt?: string | null;
+	title: string;
+	short_description: string | null;
+	long_description: string | null;
 };
 
 type BannerProps = {
@@ -49,3 +51,12 @@ type Banner = {
 	image: string;
 	alt?: string | null;
 }
+
+// type Service = {
+// 	id: string;
+// 	image: string;
+// 	alt: string;
+// 	title: string;
+// 	// short_description: string;
+// 	// long_description: string;
+// };
