@@ -23,28 +23,18 @@ const items = [
 		icon: Home,
 	},
 	{
-		title: "Partners",
-		url: "/dashboard/partners",
-		icon: Home,
-	},
-	{
 		title: "Services",
 		url: "/dashboard/services",
 		icon: Home,
 	},
 	{
-		title: "Testimonials",
-		url: "/dashboard/testimonials",
+		title: "About",
+		url: "/dashboard/about",
 		icon: Home,
 	},
 	{
-		title: "Gallery",
-		url: "/dashboard/gallery",
-		icon: Home,
-	},
-	{
-		title: "Teams",
-		url: "/dashboard/teams",
+		title: "Portfolio",
+		url: "/dashboard/portfolio",
 		icon: Home,
 	},
 	{
