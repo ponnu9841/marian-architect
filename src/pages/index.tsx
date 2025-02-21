@@ -20,7 +20,6 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   const { banner, services, contact } = props;
-  console.log(contact)
 
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -36,14 +35,16 @@ export default function Home(props: HomeProps) {
 					condimentum ipsum consequat. Mauris vitae consequat nibh, vitae
 					interdum mi."
 			/> */}
-      <div className="relative z-10">
-        <Carousel carouselItems={banner} />
-      </div>
+      {banner.length > 0 && (
+        <div className="relative z-10">
+          <Carousel carouselItems={banner} />
+        </div>
+      )}
 
       <div className="relative z-10 overflow-hidden" ref={containerRef}>
         <BackgroundScroll scrollYProgress={scrollYProgress} />
         <Portfolio />
-        <Services services={services} />
+        {services.length > 0 && <Services services={services} />}
         <About />
         <Contact contact={contact} />
       </div>
