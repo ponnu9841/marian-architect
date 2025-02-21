@@ -8,6 +8,7 @@ import serviceReducer from "./features/service-slice";
 // import galleryReducer from "./features/gallery-slice";
 // import teamsReducer from "./features/teams-slice";
 import contactReducer from "./features/contact-slice";
+import aboutReducer from "./features/about-slice";
 
 //Step 1
 const combinedReducer = combineReducers({
@@ -17,6 +18,7 @@ const combinedReducer = combineReducers({
   service: serviceReducer,
   // gallery: galleryReducer,
   contact: contactReducer,
+  about: aboutReducer,
 });
 
 //eslint-disable-next-line

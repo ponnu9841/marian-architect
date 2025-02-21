@@ -16,10 +16,11 @@ interface HomeProps {
   banner: Banner[] | [];
   services: Service[] | [];
   contact: Contact | null;
+  about: About | null;
 }
 
 export default function Home(props: HomeProps) {
-  const { banner, services, contact } = props;
+  const { banner, about, services, contact } = props;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -45,8 +46,8 @@ export default function Home(props: HomeProps) {
         <BackgroundScroll scrollYProgress={scrollYProgress} />
         <Portfolio />
         {services.length > 0 && <Services services={services} />}
-        <About />
-        <Contact contact={contact} />
+        {about && <About aboutData={about} />}
+        {contact && <Contact contact={contact} />}
       </div>
     </div>
   );
@@ -61,12 +62,14 @@ export async function getServerSideProps() {
     const banners = await axiosClient.get("/banner");
     const services = await axiosClient.get("/service");
     const contact = await axiosClient.get("/contact");
+    const about = await axiosClient.get("/about");
 
     return {
       props: {
         banner: banners.data.data,
         services: services.data.data,
         contact: contact.data.data,
+        about: about.data.data,
       },
     };
   } catch (error) {

@@ -100,6 +100,17 @@ export const contactSchema = z.object({
 	emailTwo: z.string().optional(),
 });
 
+export const aboutSchema = z.object({
+	id: z.string().optional(),
+	alt: z.string().optional(),
+	title: z.string().min(3, "Title must be at least 3 characters"),
+	titleBadge: z.string().min(3, "Title must be at least 3 characters"),
+	shortDescription: z.string().min(3, "Description must be at least 3 characters"),
+	longDescription: z.string().optional(),
+});
+
+export type AboutFormData = z.infer<typeof aboutSchema>;
+
 export type ContactFormData = z.infer<typeof contactSchema>;
 
 export type TeamsFormData = z.infer<typeof teamsSchema>;
