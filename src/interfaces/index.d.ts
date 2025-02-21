@@ -60,3 +60,13 @@ type Contact = {
   email_one: string;
   email_two: string | null;
 };
+
+type About = {
+  id: string;
+  image: string;
+  alt?: string | null;
+  title: string;
+  title_badge: string;
+  short_description: string;
+  long_description: string | null;
+}

@@ -7,7 +7,7 @@ export interface ContactCardProps {
   icon: string;
   title: string;
   line1?: string;
-  line2?: string;
+  line2?: string | null;
 }
 
 export default function ContactCard(props: ContactCardProps) {
