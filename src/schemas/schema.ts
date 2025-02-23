@@ -55,6 +55,7 @@ export const partnerSchema = z.object({
 
 export const serviceSchema = z.object({
 	// image: z.custom<File[] | null>(fileValidation),
+	id: z.string().optional(),
 	alt: z.string().optional(),
 	title: z.string().min(3, "Title must be at least 3 characters"),
 	shortDescription: z.string().optional(),
@@ -70,8 +71,8 @@ export const testimonialsSchema = z.object({
 	testimonial: z.string().min(3, "Testimonial must be at least 3 characters"),
 });
 
-export const gallerySchema = z.object({
-	// image: z.custom<File[] | null>(fileValidation),
+export const portfolioSchema = z.object({
+	id: z.string().optional(),
 	imageAlt: z.string().optional(),
 	title: z.string().optional(),
 	description: z.string().optional(),
@@ -115,7 +116,7 @@ export type ContactFormData = z.infer<typeof contactSchema>;
 
 export type TeamsFormData = z.infer<typeof teamsSchema>;
 
-export type GalleryFormData = z.infer<typeof gallerySchema>;
+export type PortfolioFormData = z.infer<typeof portfolioSchema>;
 
 export type TestimonialsFormData = z.infer<typeof testimonialsSchema>;
 

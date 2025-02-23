@@ -1,7 +1,5 @@
-import axiosClient from "@/axios/axios-client";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import TextEditor from "@/components/ui/text-editor";
 import { fetchService } from "@/redux/features/service-slice";
 import { useAppDispatch } from "@/redux/hooks/use-dispatch";
 import { useAppSelector } from "@/redux/hooks/use-selector";
@@ -9,9 +7,11 @@ import { ServiceFormData, serviceSchema } from "@/schemas/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import TextEditor from "@/components/ui/text-editor";
 import ImageUpload from "@/components/imageUpload";
 import RenderError from "@/components/render-error";
-import FormAction from "../form-action";
+import FormAction from "@/components/admin/form-action";
+import axiosClient from "@/axios/axios-client";
 
 export default function ServicesForm() {
   const {
@@ -27,6 +27,7 @@ export default function ServicesForm() {
   const dispatch = useAppDispatch();
   const [images, setImages] = useState<ExtendedFile[]>([]);
   const [loading, setLoading] = useState(false);
+  const [existingImage, setExistingImage] = useState("");
   const { selectedService } = useAppSelector(
     (state) => state.rootReducer.service
   );
@@ -43,25 +44,58 @@ export default function ServicesForm() {
     if (data.alt) {
       form.append("alt", data.alt);
     }
-    axiosClient
-      .post("/service", form)
-      .then((response) => {
-        if (response.status === 200) {
-          dispatch(fetchService());
-          reset();
-          setImages([]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      })
-      .finally(() => setLoading(false));
+    if (!data.id) {
+      axiosClient
+        .post("/service", form)
+        .then((response) => {
+          if (response.status === 200) {
+            successCB();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        })
+        .finally(() => setLoading(false));
+    } else {
+      form.append("_method", "PUT");
+      form.append("id", data.id);
+      axiosClient
+        .post("/service", form)
+        .then((response) => {
+          if (response.status === 200) {
+            successCB();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        })
+        .finally(() => setLoading(false));
+    }
+
+    function successCB() {
+      resetForm();
+      dispatch(fetchService());
+    }
   };
+
+  function resetForm() {
+    reset({
+      id: "",
+      title: "",
+      shortDescription: "",
+      longDescription: "",
+      alt: "",
+    });
+    setImages([]);
+    setExistingImage("");
+  }
 
   useEffect(() => {
     if (selectedService) {
       reset({
+        id: selectedService.id,
         title: selectedService.title,
         shortDescription: selectedService.short_description || "",
         longDescription: selectedService.long_description || "",
@@ -81,12 +115,12 @@ export default function ServicesForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <input type="hidden" {...register("id")} />
       <div className="mt-4">
         <Label htmlFor="title">Title</Label>
         <Input
           {...register("title")}
           type="text"
-          name="title"
           id="title"
           className={errors.title ? "border-red-500" : ""}
           aria-invalid={errors.title ? "true" : "false"}
@@ -96,7 +130,11 @@ export default function ServicesForm() {
         <RenderError error={errors.title?.message} />
       </div>
       <div className="mt-4">
-        <ImageUpload images={images} setImages={setImages} />
+        <ImageUpload
+          images={images}
+          setImages={setImages}
+          existingImage={existingImage}
+        />
       </div>
       {images.length > 0 && (
         <div className="mt-0">
@@ -104,7 +142,6 @@ export default function ServicesForm() {
           <Input
             {...register("alt")}
             type="text"
-            name="alt"
             id="alt"
             placeholder="Image alt"
             className={errors.alt ? "border-red-500" : ""}
@@ -135,7 +172,11 @@ export default function ServicesForm() {
         />
         <RenderError error={errors.longDescription?.message} />
       </div>
-      <FormAction reset={reset} loading={loading} setImages={setImages} />
+      <FormAction
+        reset={() => resetForm()}
+        loading={loading}
+        setImages={setImages}
+      />
     </form>
   );
 }
