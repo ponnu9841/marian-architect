@@ -15,8 +15,6 @@ const ImageUpload = (props: ImageUploadPropsType) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [selectedImages, setSelectedImages] = React.useState<string[]>([]);
 
-  console.log(existingImage);
-
   useEffect(() => {
     if (images.length === 0) setSelectedImages([]);
     else setSelectedImages(images.map((image) => image.url));

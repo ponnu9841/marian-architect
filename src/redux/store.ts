@@ -2,11 +2,8 @@ import { Action, combineReducers, configureStore } from "@reduxjs/toolkit";
 import utilsReducer from "./features/utils-slice";
 import userReducer from "./features/user-slice";
 import bannerReducer from "./features/banner-slice";
-// import partnerReducer from "./features/partner-slice";
 import serviceReducer from "./features/service-slice";
-// import testimonialReducer from "./features/testimonial-slice";
-// import galleryReducer from "./features/gallery-slice";
-// import teamsReducer from "./features/teams-slice";
+import portfolioReducer from "./features/portfolio-slice";
 import contactReducer from "./features/contact-slice";
 import aboutReducer from "./features/about-slice";
 
@@ -16,7 +13,7 @@ const combinedReducer = combineReducers({
   utils: utilsReducer,
   banner: bannerReducer,
   service: serviceReducer,
-  // gallery: galleryReducer,
+  portfolio: portfolioReducer,
   contact: contactReducer,
   about: aboutReducer,
 });
