@@ -23,7 +23,6 @@ export default function ContactForm() {
   });
 
   const [loading, setLoading] = useState(false);
-
   const dispatch = useAppDispatch();
   const { data } = useAppSelector((state) => state.rootReducer.contact);
 
@@ -65,9 +64,12 @@ export default function ContactForm() {
   }, [data]); //eslint-disable-line
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="grid grid-cols-1 grid-cols-2 gap-4"
+    >
       <input type="hidden" {...register("id")} />
-      <div className="my-4">
+      <div>
         <Label htmlFor="location">Location</Label>
         <Textarea
           {...register("location")}
@@ -80,7 +82,7 @@ export default function ContactForm() {
         />
         <RenderError error={errors.location?.message} />
       </div>
-      <div className="my-4">
+      <div>
         <Label htmlFor="contactOne">Contact Number</Label>
         <Input
           {...register("contactOne")}
@@ -94,7 +96,7 @@ export default function ContactForm() {
         />
         <RenderError error={errors.contactOne?.message} />
       </div>
-      <div className="my-4">
+      <div>
         <Label htmlFor="contactTwo">Alternate Contact Number</Label>
         <Input
           {...register("contactTwo")}
@@ -108,11 +110,11 @@ export default function ContactForm() {
         />
         <RenderError error={errors.contactTwo?.message} />
       </div>
-      <div className="my-4">
+      <div>
         <Label htmlFor="emailOne">Email</Label>
         <Input
           {...register("emailOne")}
-          type="email"
+          type="text"
           name="emailOne"
           id="emailOne"
           placeholder="Email"
@@ -122,11 +124,11 @@ export default function ContactForm() {
         />
         <RenderError error={errors.emailOne?.message} />
       </div>
-      <div className="my-4">
+      <div>
         <Label htmlFor="emailTwo">Alternate Email</Label>
         <Input
           {...register("emailTwo")}
-          type="email"
+          type="text"
           name="emailTwo"
           id="emailTwo"
           placeholder="Email"
@@ -136,7 +138,9 @@ export default function ContactForm() {
         />
         <RenderError error={errors.emailTwo?.message} />
       </div>
-      <FormAction loading={loading} reset={reset} />
+      <div className="col-span-2 -mt-6">
+        <FormAction loading={loading} showResetButton={false} />
+      </div>
     </form>
   );
 }

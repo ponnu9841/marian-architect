@@ -5,9 +5,13 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type GalleryImagesProps = {
-	images: Portfolio[];
-	selectedImage: Portfolio;
-	setSelectedImage: React.Dispatch<React.SetStateAction<Portfolio | null>>;
+	images: {
+		id: number;
+		src: string;
+		alt: string;
+	}[];
+	selectedImage: number;
+	setSelectedImage: React.Dispatch<React.SetStateAction<number | null>>;
 	arrayLength?: number;
 	currentIndex?: number;
 };
@@ -17,13 +21,12 @@ export default function GalleryDrawerContent(props: GalleryImagesProps) {
 
 	const navigateImage = (direction: "next" | "prev") => {
 		if (selectedImage === null) return;
-		const currentIndex = images.findIndex((img) => img.id === selectedImage.id);
-		// const currentIndex = images.findIndex((img) => img.id === selectedImage);
+		const currentIndex = images.findIndex((img) => img.id === selectedImage);
 		const newIndex =
 			direction === "next"
 				? (currentIndex + 1) % images.length
 				: (currentIndex - 1 + images.length) % images.length;
-		setSelectedImage(images[newIndex]);
+		setSelectedImage(images[newIndex].id);
 	};
 
 	return (
@@ -34,11 +37,11 @@ export default function GalleryDrawerContent(props: GalleryImagesProps) {
 						aria-describedby=""
 						className="text-center relative z-10 mt-2"
 					>
-						{selectedImage.alt || "Image"}
+						{images[selectedImage].alt || "Image"}
 					</DialogTitle>
 					<Image
-						src={selectedImage.image || "/no-image.png"}
-						alt={selectedImage.alt || "/no-image.png"}
+						src={images[selectedImage].src || "/no-image.png"}
+						alt={images[selectedImage].alt || "/no-image.png"}
 						fill
 						className="object-contain"
 						priority

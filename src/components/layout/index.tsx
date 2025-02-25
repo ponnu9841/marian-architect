@@ -1,18 +1,18 @@
 import { useAppDispatch } from "@/redux/hooks/use-dispatch";
 import Footer from "./footer";
 import Header from "./header";
-import PreLoader from "./preloader";
+// import PreLoader from "./preloader";
 import ScrollToTop from "./scroll-to-top";
 import { useEffect } from "react";
 import { setCurrentSection } from "@/redux/features/utils-slice";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 const sections = ["home", "portfolio", "about", "services", "contact"];
 
 export default function Layout(props: ReactChildren) {
 	const { children } = props;
 	const dispatch = useAppDispatch();
-	const router = useRouter();
+	// const router = useRouter();
 
 	// useEffect(() => {
 	// 	const handleScroll = () => {
@@ -83,7 +83,7 @@ export default function Layout(props: ReactChildren) {
 			<Header />
 			{children}
 			<Footer />
-			{router.pathname !== "/404" && <PreLoader />}
+			{/* {router.pathname !== "/404" && <PreLoader />} */}
 			<ScrollToTop />
 		</>
 	);

@@ -157,7 +157,7 @@ export default function AboutForm() {
         </div>
 
         <div className="mt-4">
-          <Label htmlFor="longDescription">Short Description</Label>
+          <Label htmlFor="longDescription">Long Description</Label>
           <Controller
             name="longDescription"
             control={control}

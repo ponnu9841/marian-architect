@@ -65,7 +65,7 @@ export default function About() {
                 <TableCell className="font-bold w-[120px]">
                   Long Description
                 </TableCell>
-                <TableCell className="font-medium whitespace-pre">
+                <TableCell className="font-medium whitespace-pre text-wrap line-clamp-4">
                   {parse(data.long_description || "")}
                 </TableCell>
               </TableRow>

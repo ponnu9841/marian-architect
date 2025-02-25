@@ -41,7 +41,6 @@ export default function About({ aboutData }: { aboutData: About }) {
             >
               {router.pathname === "/about" ? (
                 <div>
-                  {parse(aboutData.short_description)}
                   {parse(aboutData.long_description || "")}
                 </div>
               ) : (

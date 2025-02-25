@@ -14,6 +14,11 @@ export default function DashBoardLayout({ children }: ReactChildren) {
   const router = useRouter();
   const dispatch = useAppDispatch();
   useEffect(() => {
+    const token = getToken();
+    if (!token) {
+      router.push("/login");
+      return
+    }
     const controller = new AbortController();
     dispatch(fetchUser({ controller }));
     return () => controller.abort();

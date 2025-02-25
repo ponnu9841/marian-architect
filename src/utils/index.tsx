@@ -22,3 +22,11 @@ export async function createFileFromImageUrl(imageUrl: string): Promise<File> {
 
   return new File([blob], filename, { type: contentType });
 }
+
+export function chunkArray(array: any, size: number) {//eslint-disable-line
+  const result = [];
+  for (let i = 0; i < array.length; i += size) {
+      result.push(array.slice(i, i + size));
+  }
+  return result;
+}
