@@ -100,7 +100,7 @@ export default function Carousel({ carouselItems }: { carouselItems: Banner[] | 
           {items.map((item, index) => (
             <div key={index} className="item max-w-full">
               {/* eslint-disable-next-line */}
-              <img src={item.image} alt="" className="max-w-full" />
+              <NextImage src={item.image} alt="" className="max-w-full" />
             </div>
           ))}
         </div>

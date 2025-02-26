@@ -23,6 +23,16 @@ const nextConfig: NextConfig = {
         pathname: "/uploads/**",
         port: "8000",
       },
+      {
+				protocol: "http",
+				hostname: "**.mariandesignstudio.in",
+				pathname: "/uploads/**",
+			},
+      {
+				protocol: "https",
+				hostname: "**.mariandesignstudio.in",
+				pathname: "/uploads/**",
+			},
     ],
   },
 };
