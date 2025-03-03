@@ -1,13 +1,13 @@
 import AnimateText from "@/components/amination/text";
 import TitleBadge from "@/components/title-badge";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import NextImage from "@/components/ui/Image";
 // import ParallaxTiltMultiple from "@/components/ui/parallax/parallax-multiple";
 // import { aboutData } from "@/dummy-data";
 import parse from "html-react-parser";
-import { Plus } from "lucide-react";
+// import { Plus } from "lucide-react";
 import { motion } from "motion/react";
-import Link from "next/link";
+// import Link from "next/link";
 
 import { useRouter } from "next/router";
 
@@ -47,7 +47,7 @@ export default function About({ aboutData }: { aboutData: About }) {
                 parse(aboutData.short_description || "")
               )}
             </motion.div>
-            {router.pathname === "/" && (
+            {/* {router.pathname === "/" && (
               <motion.div
                 className="mt-8"
                 initial={{ y: 50, filter: "blur(5px)" }}
@@ -61,7 +61,7 @@ export default function About({ aboutData }: { aboutData: About }) {
                   </Button>
                 </Link>
               </motion.div>
-            )}
+            )} */}
           </div>
         </div>
       </div>

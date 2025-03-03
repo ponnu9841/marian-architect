@@ -76,7 +76,7 @@ export default function Layout(props: ReactChildren) {
 		return () => {
 		  window.removeEventListener("scroll", handleScroll);
 		};
-	  }, []);
+	  }, []); //eslint-disable-line
 
 	return (
 		<>

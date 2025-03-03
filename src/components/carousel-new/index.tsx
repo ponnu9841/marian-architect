@@ -99,7 +99,6 @@ export default function Carousel({ carouselItems }: { carouselItems: Banner[] | 
         <div className="list">
           {items.map((item, index) => (
             <div key={index} className="item max-w-full">
-              {/* eslint-disable-next-line */}
               <NextImage src={item.image} alt="" className="max-w-full" />
             </div>
           ))}

@@ -8,20 +8,20 @@ export default function Contact(props: { contact: Contact | null }) {
   const contactData = [
     {
       icon: "/icons/map.svg",
-      title: "Our Location",
+      title: "Location",
       line1: contact?.location,
     },
     {
       icon: "/icons/message.svg",
-      title: "Our Location",
-      line1: `(+91) ${contact?.contactno_one}`,
+      title: "Call Us",
+      line1: contact?.contactno_one ? `(+91) ${contact?.contactno_one}` : "",
       line2: contact?.contactno_two ? `(+91) ${contact?.contactno_two}` : "",
     },
     {
       icon: "/icons/help.svg",
-      title: "Help Desk",
-      line1: contact?.email_one,
-      line2: contact?.email_two,
+      title: "Enquiry",
+      line1: contact?.email_one || "",
+      line2: contact?.email_two || "",
     },
   ];
 

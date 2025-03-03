@@ -2,7 +2,7 @@ import 'react-quill/dist/quill.snow.css';
 import "@/styles/globals.css";
 import { NextPage } from "next";
 import type { AppProps } from "next/app";
-import { jost } from "../utils/fonts";
+import { montserrat } from "../utils/fonts";
 import { ThemeProvider } from "@/components/theme-provider";
 import CustomCursor from "@/components/custom-cursor";
 import store from "@/redux/store";
@@ -23,7 +23,7 @@ export default function App(props: AppPropsWithLayout) {
 	return (
 		<Provider store={store}>
 			<div
-				className={`min-h-screen w-full ${jost.variable}`}
+				className={`min-h-screen w-full ${montserrat.className}`}
 			>
 				<ThemeProvider
 					attribute="class"
