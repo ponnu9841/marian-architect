@@ -1,5 +1,5 @@
 import axiosClient from "@/axios/axios-client";
-import BackgroundScroll from "@/components/background-scroll";
+// import BackgroundScroll from "@/components/background-scroll";
 import Carousel from "@/components/carousel-new";
 import Layout from "@/components/layout";
 // import ScrollableSection from "@/components/layout/scrollable-section";
@@ -9,8 +9,8 @@ import About from "@/components/section/about";
 import Contact from "@/components/section/contact";
 import Portfolio from "@/components/section/portfolio/portfolio2";
 import Services from "@/components/section/services/services2";
-import { useScroll } from "motion/react";
-import { useRef } from "react";
+// import { useScroll } from "motion/react";
+// import { useRef } from "react";
 
 interface HomeProps {
   banner: Banner[] | [];
@@ -22,11 +22,11 @@ interface HomeProps {
 export default function Home(props: HomeProps) {
   const { banner, about, services, contact } = props;
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+  // const containerRef = useRef<HTMLDivElement>(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: containerRef,
+  //   offset: ["start start", "end end"],
+  // });
   return (
     <div>
       {/* <Banner
@@ -42,8 +42,9 @@ export default function Home(props: HomeProps) {
         </div>
       )}
 
-      <div className="relative z-10 overflow-hidden" ref={containerRef}>
-        <BackgroundScroll scrollYProgress={scrollYProgress} />
+      {/* <div className="relative z-10 overflow-hidden" ref={containerRef}> */}
+      <div className="relative z-10 overflow-hidden">
+        {/* <BackgroundScroll scrollYProgress={scrollYProgress} /> */}
         <Portfolio />
         {services.length > 0 && <Services services={services} />}
         {about && <About aboutData={about} />}

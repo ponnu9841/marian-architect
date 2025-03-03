@@ -15,22 +15,22 @@ import { chunkArray } from "@/utils";
 // import CarouselSlider from "@/components/carousel";
 
 const gridClasses = [
-  "col-span-1 row-span-2 aspect-square",
-  "col-span-2 max-h-[200px] overflow-hidden aspect-square",
-  "col-span-1 max-h-[200px] overflow-hidden",
-  "col-span-1 row-span-2 overflow-hidden",
-  "col-span-1 row-span-2 overflow-hidden",
-  "col-span-1 row-span-3 overflow-hidden",
-  "col-span-2 row-span-1 overflow-hidden",
-  "col-span-1 row-span-2 overflow-hidden",
-  "col-span-1 row-span-1 overflow-hidden",
-  "col-span-1 row-span-2 overflow-hidden",
-  "col-span-2 row-span-1 overflow-hidden",
-  "col-span-1 row-span-2 overflow-hidden",
-  "col-span-1 row-span-1 overflow-hidden",
-  "col-span-1 row-span-2 overflow-hidden",
-  "col-span-2 row-span-2 overflow-hidden",
-  "col-span-2 row-span-2 overflow-hidden",
+  "col-span-6 md:col-span-1 md:row-span-2 aspect-square",
+  "col-span-6 md:col-span-2 max-h-[200px] overflow-hidden aspect-square",
+  "col-span-6 md:col-span-1 max-h-[200px] overflow-hidden",
+  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden aspect-square",
+  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden",
+  "col-span-6 md:col-span-1 md:row-span-3 overflow-hidden aspect-square",
+  "col-span-6 md:col-span-2 md:row-span-1 overflow-hidden",
+  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden aspect-square",
+  "col-span-6 md:col-span-1 md:row-span-1 overflow-hidden",
+  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden aspect-square",
+  "col-span-6 md:col-span-2 md:row-span-1 overflow-hidden",
+  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden aspect-square",
+  "col-span-6 md:col-span-1 md:row-span-1 overflow-hidden",
+  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden aspect-square",
+  "col-span-6 md:col-span-2 md:row-span-2 overflow-hidden",
+  "col-span-6 md:col-span-2 md:row-span-2 overflow-hidden",
 ];
 
 export default function Portfolio() {
@@ -78,7 +78,7 @@ export default function Portfolio() {
                       gridClasses[index2] ||
                       "col-span-1 row-span-1 overflow-hidden"
                     }
-                    imageClassName="object-cover h-full"
+                    imageClassName="object-cover h-full md:grayscale hover:grayscale-0 transition-all duration-300"
                     key={index2}
                     onClick={() => openDialog(portfolios, index2)}
                     priority={true}

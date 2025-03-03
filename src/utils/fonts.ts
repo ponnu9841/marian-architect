@@ -1,11 +1,13 @@
 import localFont from "next/font/local";
-import { Teko } from "next/font/google";
+import { Teko, Montserrat } from "next/font/google";
 
 export const jost = localFont({
 	src: "../../public/font/Jost/Jost-VariableFont_wght.ttf",
 	variable: "--font-jost",
 	style: "normal",
 });
+
+export const montserrat = Montserrat({ weight: '500', subsets: ["latin"] });
 
 export const teko = Teko({ subsets: ["latin"] });
 
