@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function Services({ services }: { services: Service[] }) {
 	return (
-		<section id="services">
+		<section id="services" className="w-full">
 			<div className="container pt-10 md:pt-24">
 				<SectionTitle
 					title="Services"

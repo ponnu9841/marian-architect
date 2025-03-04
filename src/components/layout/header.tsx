@@ -13,14 +13,14 @@ import { Menu } from "lucide-react";
 import LogoText from "./logo-text";
 import { useAppSelector } from "@/redux/hooks/use-selector";
 import { navItems } from "@/utils";
+import { useScrollSpy } from "@/hooks/use-scroll-spy";
 
 export default function Header() {
 	const headerRef = useRef<HTMLDivElement | null>(null);
 	const [isOpen, setIsOpen] = useState(false);
 	
 	const { currentSection } = useAppSelector((state) => state.rootReducer.utils);
-
-	
+	useScrollSpy();
 
 	return (
 		<header className="bg-transparent z-100 ">
@@ -40,7 +40,7 @@ export default function Header() {
 							{navItems.map((item, index) => (
 								<li
 									key={index}
-									className="flex justify-center items-center hidden md:block"
+									className="flex justify-center items-center hidden lg:block"
 								>
 									<Link
 										key={item.name}
@@ -59,7 +59,7 @@ export default function Header() {
 								<ThemeToggle />
 							</div> */}
 						</ul>
-						<div className="md:hidden flex items-center z-50">
+						<div className="lg:hidden flex items-center z-50">
 							<Sheet open={isOpen} onOpenChange={setIsOpen}>
 								<SheetTrigger asChild>
 									<Button

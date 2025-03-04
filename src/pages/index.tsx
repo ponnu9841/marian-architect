@@ -36,21 +36,35 @@ export default function Home(props: HomeProps) {
 					condimentum ipsum consequat. Mauris vitae consequat nibh, vitae
 					interdum mi."
 			/> */}
-      {banner.length > 0 && (
+      {banner?.length > 0 && (
         <div className="relative z-10">
           <Carousel carouselItems={banner} />
         </div>
       )}
 
       {/* <div className="relative z-10 overflow-hidden" ref={containerRef}> */}
-      <div className="relative z-10 overflow-hidden">
-        {/* <BackgroundScroll scrollYProgress={scrollYProgress} /> */}
+      {/* <div className="relative z-10 overflow-hidden"> */}
+      {/* <BackgroundScroll scrollYProgress={scrollYProgress} /> */}
+      <div className="lg:min-h-screen lg:flex lg:justify-center lg:items-center w-full">
         <Portfolio />
-        {services.length > 0 && <Services services={services} />}
-        {about && <About aboutData={about} />}
-        {contact && <Contact contact={contact} />}
       </div>
+      {services?.length > 0 && (
+        <div className="lg:min-h-screen lg:flex lg:justify-center lg:items-center w-full">
+          <Services services={services} />
+        </div>
+      )}
+      {about && (
+        <div className="lg:min-h-screen lg:flex lg:justify-center lg:items-center w-full">
+          <About aboutData={about} />
+        </div>
+      )}
+      {contact && (
+        <div className="lg:min-h-screen lg:flex lg:justify-center lg:items-center w-full">
+          <Contact contact={contact} />
+        </div>
+      )}
     </div>
+    // </div>
   );
 }
 

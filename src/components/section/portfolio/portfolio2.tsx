@@ -14,24 +14,26 @@ import { useAppSelector } from "@/redux/hooks/use-selector";
 import { chunkArray } from "@/utils";
 // import CarouselSlider from "@/components/carousel";
 
-const gridClasses = [
-  "col-span-6 md:col-span-1 md:row-span-2 aspect-square",
-  "col-span-6 md:col-span-2 max-h-[200px] overflow-hidden aspect-square",
-  "col-span-6 md:col-span-1 max-h-[200px] overflow-hidden",
-  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden aspect-square",
-  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden",
-  "col-span-6 md:col-span-1 md:row-span-3 overflow-hidden aspect-square",
-  "col-span-6 md:col-span-2 md:row-span-1 overflow-hidden",
-  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden aspect-square",
-  "col-span-6 md:col-span-1 md:row-span-1 overflow-hidden",
-  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden aspect-square",
-  "col-span-6 md:col-span-2 md:row-span-1 overflow-hidden",
-  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden aspect-square",
-  "col-span-6 md:col-span-1 md:row-span-1 overflow-hidden",
-  "col-span-6 md:col-span-1 md:row-span-2 overflow-hidden aspect-square",
-  "col-span-6 md:col-span-2 md:row-span-2 overflow-hidden",
-  "col-span-6 md:col-span-2 md:row-span-2 overflow-hidden",
-];
+const gridClasses = (width: number) => {
+  return [
+    `col-span-6 lg:col-span-1 lg:row-span-2 aspect-square`,
+    `col-span-6 lg:col-span-2 max-h-[200px] overflow-hidden aspect-square`,
+    `col-span-6 lg:col-span-1 max-h-[200px] overflow-hidden ${width < 1024 ? "aspect-square" : ""}`,
+    `col-span-6 lg:col-span-1 lg:row-span-2 overflow-hidden aspect-square`,
+    `col-span-6 lg:col-span-1 lg:row-span-2 overflow-hidden ${width < 1024 ? "aspect-square" : ""}`,
+    `col-span-6 lg:col-span-1 lg:row-span-3 overflow-hidden aspect-square`,
+    `col-span-6 lg:col-span-2 lg:row-span-1 overflow-hidden ${width < 1024 ? "aspect-square" : ""}`,
+    `col-span-6 lg:col-span-1 lg:row-span-2 overflow-hidden aspect-square`,
+    `col-span-6 lg:col-span-1 lg:row-span-1 overflow-hidden ${width < 1024 ? "aspect-square" : ""}`,
+    `col-span-6 lg:col-span-1 lg:row-span-2 overflow-hidden aspect-square`,
+    `col-span-6 lg:col-span-2 lg:row-span-1 overflow-hidden ${width < 1024 ? "aspect-square" : ""}`,
+    `col-span-6 lg:col-span-1 lg:row-span-2 overflow-hidden aspect-square`,
+    `col-span-6 lg:col-span-1 lg:row-span-1 overflow-hidden ${width < 1024 ? "aspect-square" : ""}`,
+    `col-span-6 lg:col-span-1 lg:row-span-2 overflow-hidden aspect-square`,
+    `col-span-6 lg:col-span-2 lg:row-span-2 overflow-hidden ${width < 1024 ? "aspect-square" : ""}`,
+    `col-span-6 lg:col-span-2 lg:row-span-2 overflow-hidden ${width < 1024 ? "aspect-square" : ""}`,
+  ];
+};
 
 export default function Portfolio() {
   const [selectedImage, setSelectedImage] = useState<Portfolio | null>(null);
@@ -43,6 +45,8 @@ export default function Portfolio() {
 
   const dispatch = useAppDispatch();
   const { portfolio } = useAppSelector((state) => state.rootReducer.portfolio);
+  const { windowSize } = useAppSelector((state) => state.rootReducer.utils);
+  const windowWidth = windowSize.width;
   useEffect(() => {
     const controller = new AbortController();
     dispatch(fetchPortfolio({ controller, pageSize: 32 }));
@@ -59,9 +63,12 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="px-2 pt-10 md:pt-24 mb-0 relative z-5">
+    <section
+      id="portfolio"
+      className="px-2 mt-10 md:mt-24 mb-0 relative z-5 w-full"
+    >
       <div>
-        <div className="mb-4">
+        <div className="mb-4 md:mb-12">
           <SectionTitle
             title="Portfolio"
             // description="Get your company heading in the right direction with our digital marketing strategist"
@@ -69,13 +76,13 @@ export default function Portfolio() {
         </div>
         <div className="flex flex-col">
           {groupedPortfolioArray.map((portfolios, index1) => (
-            <div className="grid grid-cols-6 grid-rows-5 gap-1" key={index1}>
+            <div className="grid grid-cols-6 lg:grid-rows-5 gap-1" key={index1}>
               {portfolios.map((portfolio: Portfolio, index2: number) => {
                 return (
                   <NextImage
                     src={portfolio.image}
                     className={
-                      gridClasses[index2] ||
+                      gridClasses(windowWidth)[index2] ||
                       "col-span-1 row-span-1 overflow-hidden"
                     }
                     imageClassName="object-cover h-full md:grayscale hover:grayscale-0 transition-all duration-300"
