@@ -15,7 +15,7 @@ export default function About({ aboutData }: { aboutData: About }) {
   const router = useRouter();
   return (
     <section id="about">
-      <div className="container relative pt-10 md:pt-24">
+      <div className="container relative mt-10 lg:mt-24">
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="flex-1 max-w-[550px]">
             {/* <ParallaxTiltMultiple
@@ -23,7 +23,7 @@ export default function About({ aboutData }: { aboutData: About }) {
 							rightImage="/portfolio.webp"
 						/> */}
             <NextImage
-              src="/works/1.jpg"
+              src={aboutData.image ||"/works/1.jpg"}
               className="aspect-square"
               imageClassName="object-cover"
             />

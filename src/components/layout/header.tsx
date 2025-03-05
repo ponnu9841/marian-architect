@@ -25,7 +25,7 @@ export default function Header() {
 	return (
 		<header className="bg-transparent z-100 ">
 			{/* <InfoBar /> */}
-			<div ref={headerRef} className="w-full z-50 fixed top-0 left-0 w-full">
+			<div ref={headerRef} className="w-full z-50 fixed top-0 left-0 max-w-full">
 				<nav className="flex items-center gap-4 justify-between w-full h-full container">
 					<Link href="/" className="flex justify-start items-center space-x-2">
 						<NextImage

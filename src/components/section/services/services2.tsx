@@ -10,7 +10,7 @@ export default function Services({ services }: { services: Service[] }) {
 					title="Services"
 					// description="Get your company heading in the right direction with our digital marketing strategist"
 				/>
-				<div className="flex flex-wrap sm:justify-start lg:justify-center -mx-6 2xl:-mx-4 mt-4 md:mt-12">
+				<div className="flex flex-wrap sm:justify-start lg:justify-center lg:-mx-6 2xl:-mx-4 mt-4 md:mt-12">
 					{services.map((service, index) => (
 						<motion.div
 							key={index}

@@ -28,7 +28,7 @@ export default function Home(props: HomeProps) {
   //   offset: ["start start", "end end"],
   // });
   return (
-    <div>
+    <>
       {/* <Banner
 				title="Architecture is a visual art, and the building speak for themselves"
 				description="Architecture bibendum pharetra eleifend. Suspendisse vel volutpat
@@ -37,7 +37,7 @@ export default function Home(props: HomeProps) {
 					interdum mi."
 			/> */}
       {banner?.length > 0 && (
-        <div className="relative z-10">
+        <div className="min-w-full relative z-10">
           <Carousel carouselItems={banner} />
         </div>
       )}
@@ -45,25 +45,11 @@ export default function Home(props: HomeProps) {
       {/* <div className="relative z-10 overflow-hidden" ref={containerRef}> */}
       {/* <div className="relative z-10 overflow-hidden"> */}
       {/* <BackgroundScroll scrollYProgress={scrollYProgress} /> */}
-      <div className="lg:min-h-screen lg:flex lg:justify-center lg:items-center w-full">
-        <Portfolio />
-      </div>
-      {services?.length > 0 && (
-        <div className="lg:min-h-screen lg:flex lg:justify-center lg:items-center w-full">
-          <Services services={services} />
-        </div>
-      )}
-      {about && (
-        <div className="lg:min-h-screen lg:flex lg:justify-center lg:items-center w-full">
-          <About aboutData={about} />
-        </div>
-      )}
-      {contact && (
-        <div className="lg:min-h-screen lg:flex lg:justify-center lg:items-center w-full">
-          <Contact contact={contact} />
-        </div>
-      )}
-    </div>
+      <Portfolio />
+      {services?.length > 0 && <Services services={services} />}
+      {about && <About aboutData={about} />}
+      {contact && <Contact contact={contact} />}
+    </>
     // </div>
   );
 }
