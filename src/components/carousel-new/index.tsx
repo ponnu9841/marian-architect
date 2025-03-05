@@ -44,7 +44,11 @@ import NextImage from "../ui/Image";
 //   },
 // ];
 
-export default function Carousel({ carouselItems }: { carouselItems: Banner[] | [] }) {
+export default function Carousel({
+  carouselItems,
+}: {
+  carouselItems: Banner[] | [];
+}) {
   const [items, setItems] = useState(carouselItems);
   // const [isNext, setIsNext] = useState(true);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -99,7 +103,12 @@ export default function Carousel({ carouselItems }: { carouselItems: Banner[] | 
         <div className="list">
           {items.map((item, index) => (
             <div key={index} className="item max-w-full">
-              <NextImage src={item.image} alt="" className="max-w-full" />
+              <NextImage
+                src={item.image}
+                alt=""
+                className="max-w-full"
+                priority={index === 0 ? true : false}
+              />
             </div>
           ))}
         </div>

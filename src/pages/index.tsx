@@ -28,7 +28,7 @@ export default function Home(props: HomeProps) {
   //   offset: ["start start", "end end"],
   // });
   return (
-    <div>
+    <>
       {/* <Banner
 				title="Architecture is a visual art, and the building speak for themselves"
 				description="Architecture bibendum pharetra eleifend. Suspendisse vel volutpat
@@ -36,21 +36,21 @@ export default function Home(props: HomeProps) {
 					condimentum ipsum consequat. Mauris vitae consequat nibh, vitae
 					interdum mi."
 			/> */}
-      {banner.length > 0 && (
-        <div className="relative z-10">
+      {banner?.length > 0 && (
+        <div className="min-w-full relative z-10">
           <Carousel carouselItems={banner} />
         </div>
       )}
 
       {/* <div className="relative z-10 overflow-hidden" ref={containerRef}> */}
-      <div className="relative z-10 overflow-hidden">
-        {/* <BackgroundScroll scrollYProgress={scrollYProgress} /> */}
-        <Portfolio />
-        {services.length > 0 && <Services services={services} />}
-        {about && <About aboutData={about} />}
-        {contact && <Contact contact={contact} />}
-      </div>
-    </div>
+      {/* <div className="relative z-10 overflow-hidden"> */}
+      {/* <BackgroundScroll scrollYProgress={scrollYProgress} /> */}
+      <Portfolio />
+      {services?.length > 0 && <Services services={services} />}
+      {about && <About aboutData={about} />}
+      {contact && <Contact contact={contact} />}
+    </>
+    // </div>
   );
 }
 

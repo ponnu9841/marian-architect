@@ -34,7 +34,7 @@ export default function GalleryDrawerContent(props: GalleryImagesProps) {
 						aria-describedby=""
 						className="text-center relative z-10 mt-2"
 					>
-						{selectedImage.alt || "Image"}
+						{selectedImage.alt || ""}
 					</DialogTitle>
 					<Image
 						src={selectedImage.image || "/no-image.png"}
