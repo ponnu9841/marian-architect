@@ -22,13 +22,13 @@ export default function FooterContact() {
   return (
     <>
       {data && (
-        <div className="mt-4 flex flex-wrap flex-1 justify-between">
-          <div className="text-base mb-2 flex lg:justify-center w-full">
+        <>
+          <div className="flex-1 text-base mb-2 flex lg:justify-center">
             <Link href={`tel:0${data.contactno_one}`}>
               {data.contactno_one ? `(+91) ${data.contactno_one}` : ""}
             </Link>
           </div>
-          <div className="text-base text-wrap break-words">
+          <div className="flex-1 text-base text-wrap break-words">
             <Link href={`mailto:${data.email_one}`} className="text-base">
               {data.email_one || ""}
             </Link>
@@ -59,7 +59,7 @@ export default function FooterContact() {
 								</div>
 							</div>
           </div>
-        </div>
+        </>
       )}
     </>
   );

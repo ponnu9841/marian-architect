@@ -28,7 +28,7 @@ export default function Footer() {
 				<div className="container pt-20 pb-6 w-full">
 					<div className="flex flex-wrap justify-between mb-16">
 						{/* <div className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)]"> */}
-							<div className="flex space-x-4 items-center min-w-[300px] lg:min-w-[380px]">
+							<div className="flex-1 flex space-x-4 items-center min-w-[300px] lg:min-w-[380px]">
 								<NextImage
 									src="/logo.webp"
 									className="aspect-square max-w-[100px] max-h-[100px]"
