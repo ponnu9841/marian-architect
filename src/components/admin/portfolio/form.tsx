@@ -50,10 +50,9 @@ export default function PortfolioForm() {
         })
         .finally(() => setLoading(false));
     } else {
-      formData.append("_method", "PUT");
       formData.append("id", data.id);
       axiosClient
-        .post("/portfolio", formData)
+        .put("/portfolio", formData)
         .then((response) => {
           if (response.status === 200) {
             successCB();

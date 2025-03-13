@@ -19,7 +19,7 @@ export default function Gallery() {
     (state) => state.rootReducer.portfolio
   );
 
-  const lastPage = portfolio?.last_page;
+  const lastPage = portfolio?.totalPages;
 
   useEffect(() => {
     const controller = new AbortController();

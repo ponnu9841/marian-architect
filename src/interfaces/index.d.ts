@@ -98,8 +98,17 @@ type ResponseCommonStructure = {
   total: number;
 };
 
+type ResponseStructure = {
+  page: number;
+  limit: number;
+  totalItems: number;
+  totalPages: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+}
+
 type PortfolioResponse =
-  | (ResponseCommonStructure & {
+  | (ResponseStructure & {
       data: Portfolio[] | [];
     })
   | null;

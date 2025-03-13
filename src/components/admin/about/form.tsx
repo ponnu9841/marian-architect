@@ -56,9 +56,8 @@ export default function AboutForm() {
         })
         .finally(() => setLoading(false));
     } else {
-      form.append("_method", "PUT");
       axiosClient
-        .post("/about", form)
+        .put("/about", form)
         .then((response) => {
           if (response.status === 200) {
             dispatch(fetchAbout());

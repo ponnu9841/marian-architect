@@ -58,10 +58,10 @@ export default function ServicesForm() {
         })
         .finally(() => setLoading(false));
     } else {
-      form.append("_method", "PUT");
+      // form.append("_method", "PUT");
       form.append("id", data.id);
       axiosClient
-        .post("/service", form)
+        .put("/service", form)
         .then((response) => {
           if (response.status === 200) {
             successCB();
@@ -101,15 +101,7 @@ export default function ServicesForm() {
         longDescription: selectedService.long_description || "",
         alt: selectedService.alt || "", // Assuming you have this field
       });
-      (async () => {
-        const fileUrl = selectedService.image; // Replace with your URL
-        const filename = "service-image.png";
-        const file = new File([fileUrl], filename, {
-          type: "image/png",
-        }) as ExtendedFile;
-        file.url = fileUrl;
-        setImages([file]);
-      })();
+      setExistingImage(selectedService.image)
     }
   }, [selectedService]); //eslint-disable-line
 
