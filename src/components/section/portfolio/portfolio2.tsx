@@ -12,6 +12,7 @@ import { useAppDispatch } from "@/redux/hooks/use-dispatch";
 import { fetchPortfolio } from "@/redux/features/portfolio-slice";
 import { useAppSelector } from "@/redux/hooks/use-selector";
 import { chunkArray } from "@/utils";
+import { Button } from "@/components/ui/button";
 // import CarouselSlider from "@/components/carousel";
 
 const gridClasses = (width: number) => {
@@ -47,11 +48,12 @@ export default function Portfolio() {
   const { portfolio } = useAppSelector((state) => state.rootReducer.portfolio);
   const { windowSize } = useAppSelector((state) => state.rootReducer.utils);
   const windowWidth = windowSize.width;
+  const [pageNo, setPageNo] = useState(1);
   useEffect(() => {
     const controller = new AbortController();
-    dispatch(fetchPortfolio({ controller, pageSize: 32 }));
+    dispatch(fetchPortfolio({ controller, pageNo, pageSize: 32, infinite: true }));
     return () => controller.abort();
-  }, []); //eslint-disable-line
+  }, [pageNo]); //eslint-disable-line
 
   let groupedPortfolioArray = [];
   if (portfolio) {
@@ -61,6 +63,12 @@ export default function Portfolio() {
     setImages(portfolios);
     setSelectedImage(portfolios[index]);
   };
+  const lastPage = portfolio?.totalPages;
+  const handleClick = () => {
+    if (lastPage && pageNo < lastPage) {
+      setPageNo(pageNo + 1);
+    }
+  }
 
   return (
     <section
@@ -95,6 +103,9 @@ export default function Portfolio() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="my-6 flex justify-center">
+        <Button size="lg" onClick={handleClick}>View More</Button>
       </div>
       <Dialog open={selectedImage !== null} onOpenChange={closeDialog}>
         <DialogContent className="max-w-[90vw] w-full max-h-[90vh] h-full p-5 text-white bg-transparent border-none">
