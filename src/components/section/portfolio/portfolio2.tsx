@@ -49,13 +49,12 @@ export default function Portfolio() {
   const { windowSize } = useAppSelector((state) => state.rootReducer.utils);
   const windowWidth = windowSize.width;
   const [pageNo, setPageNo] = useState(1);
-  const [pageSize, setPageSize] = useState(32);
-
+  
   useEffect(() => {
     const controller = new AbortController();
-    dispatch(fetchPortfolio({ controller, pageNo, pageSize, infinite: true }));
+    dispatch(fetchPortfolio({ controller, pageNo, pageSize: 32, infinite: true }));
     return () => controller.abort();
-  }, [pageNo, pageSize]); //eslint-disable-line
+  }, [pageNo]); //eslint-disable-line
 
   let groupedPortfolioArray = [];
   if (portfolio) {
@@ -69,7 +68,6 @@ export default function Portfolio() {
   const handleClick = () => {
     if (lastPage && pageNo < lastPage) {
       setPageNo(pageNo + 1);
-      setPageSize(16)
     }
   }
 
